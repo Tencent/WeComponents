@@ -28,12 +28,12 @@ WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声�
 
 ```javascript
 // 1. 引入组件库
-import WeComponents from "wecomponents";
+import WeComponents from 'wecomponents';
 
 // 2. 声明页面组件
 let pageFields = [
     {
-        component: "input",
+        component: 'input',
         label: '标题'
     }
 ];
@@ -90,34 +90,34 @@ export default {
                 attributes: { placeholder: '暂无数据', pagination: 'default' },
                 items: [
                     {
-                        name: "icon",
-                        label: "游戏图标",
-                        attributes: { width: 60, textAlign: "center" },
+                        name: 'icon',
+                        label: '游戏图标',
+                        attributes: { width: 60, textAlign: 'center' },
                         value(v, row) {
                             return `<img src="${v}" width="28" />`;
                         }
                     },
-                    { name: "name", label: "游戏名称" },
+                    { name: 'name', label: '游戏名称' },
                     {
-                        name: "size",
-                        label: "大小",
-                        attributes: { textAlign: "right" },
+                        name: 'size',
+                        label: '大小',
+                        attributes: { textAlign: 'right' },
                         value(v, row) {
                             return `${(v/1000/1000/1000).toFixed(1)} G`;
                         }
                     },
-                    { name: "intro", label: "简介" },
+                    { name: 'intro', label: '简介' },
                     {
                         label: '操作',
                         value() {
                             return {
-                                component: "container",
+                                component: 'container',
                                 items: [
                                     {
-                                        label: "查看",
-                                        component: "button",
+                                        label: '查看',
+                                        component: 'button',
                                         attributes: {
-                                            type: "link", clickEventName: "checkDetails"
+                                            type: 'link', clickEventName: 'checkDetails'
                                         }
                                     }
                                 ]
@@ -127,16 +127,16 @@ export default {
                 ],
                 value: [
                     {
-                    icon: "http://mmocgame.qpic.cn/wechatgame/HurH4elIxzLGX0FjtUic0kcQtloVbicTO6LVjWicWYwrIvUBSsve2KWz40jS2MFM5Zu/0",
-                    name: "王者荣耀",
+                    icon: 'http://mmocgame.qpic.cn/wechatgame/HurH4elIxzLGX0FjtUic0kcQtloVbicTO6LVjWicWYwrIvUBSsve2KWz40jS2MFM5Zu/0',
+                    name: '王者荣耀',
                     size: 3675556864,
-                    intro: "爽快超神，腾讯5v5英雄公平对战手游"
+                    intro: '爽快超神，腾讯5v5英雄公平对战手游'
                     },
                     {
-                        icon: "https://mmocgame.qpic.cn/wechatgame/duc2TvpEgSTLicunKH0MgcMLa8jicfvBvEXiaNAIReHzQJxhsibvgbVpIKtibgV8UcMEO/0",
-                        name: "和平精英",
+                        icon: 'https://mmocgame.qpic.cn/wechatgame/duc2TvpEgSTLicunKH0MgcMLa8jicfvBvEXiaNAIReHzQJxhsibvgbVpIKtibgV8UcMEO/0',
+                        name: '和平精英',
                         size: 3898905600,
-                        intro: "大吉大利，腾讯光子自研军事竞赛体验"
+                        intro: '大吉大利，腾讯光子自研军事竞赛体验'
                     }
                 ]
             }
