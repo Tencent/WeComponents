@@ -1,5 +1,5 @@
 {
-  "name": "wecomponents",
+  "name": "@tencent/wecomponents",
   "version": "2.0.7",
   "description": "An implementation of Common Component Language Specs for vue.js",
   "main": "lib/wecomponents.esm.js",

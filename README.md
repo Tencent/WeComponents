@@ -28,7 +28,7 @@ WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声�
 
 ```javascript
 // 1. 引入组件库
-import WeComponents from 'wecomponents';
+import WeComponents from '@tencent/wecomponents';
 
 // 2. 声明页面组件
 let pageFields = [
