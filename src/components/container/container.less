@@ -1,0 +1,182 @@
+.wg-container {
+    margin: 0.5rem 0;
+    .wg-container-head {
+        position: relative;
+        height: 2.2rem;
+        display: flex;
+        justify-content: space-between;
+        line-height: 2.2rem;
+        border: 1px solid #d8d8d8;
+        border-radius: 0.2rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding: 0 1rem;
+        .wg-container-head_title {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #353535;
+            overflow: visible;
+        }
+        .wg-container-head_options {
+            display: inline-block;
+            .wg-container-head_arrow {
+                cursor: pointer;
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                margin-top: -0.3rem;
+                display: inline-block;
+                width: 0.4rem;
+                height: 0.4rem;
+                border-top: 1px solid #d8d8d8;
+                border-right: 1px solid #d8d8d8;
+                transform: rotate(135deg);
+                vertical-align: 1px;
+                margin-left: 0.4rem;
+                &:before {
+                    // 扩大可点击区域
+                    content: "";
+                    display: inline-block;
+                    width: 1rem;
+                    height: 1rem;
+                    position: absolute;
+                    right: -0.5rem;
+                    top: -0.5rem;
+                }
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .wg-container-head_arrow-active {
+                margin-top: -0.1rem;
+                transform: rotate(-45deg);
+            }
+            .wg-container-head_delete {
+                cursor: pointer;
+                color: #d8d8d8;
+                margin-left: .3rem;
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: 1rem;
+                    height: 1.5rem;
+                    top: 0.3rem;
+                    position: absolute;
+                }
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+            .wg-container-head_copy {
+                cursor: pointer;
+                color: #d8d8d8;
+                font-size: .7rem;
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 1rem;
+                    height: 1.5rem;
+                    top: 0.3rem;
+                    position: absolute;
+                }
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+    .wg-container-head_padding-right {
+        padding: 0 2rem 0 1rem;
+    }
+    .wg-container-content {
+        padding: 0.2rem 1rem;
+        overflow: auto;
+    }
+    .wg-table-body_tr .wg-container-content {
+        padding: 0;
+    }
+    .wg-container-content_border {
+        border: 1px solid #e4e8eb;
+        border-top: none;
+        border-radius: 0.2rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+}
+.wg-container-modal_wraper {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    display: table;
+    transition: opacity .3s ease;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .wg-container-modal {
+        max-width: 70%;
+        max-height: 70%;
+        min-width: 30%;
+        .wg-container-head {
+            background-color: #fff;
+        }
+        .wg-container-content {
+            background-color: #fff;
+            padding: 1rem 2rem;
+            overflow: auto;
+        }
+        .wg-modal-button_submit{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}
+.wg-container-flex {
+    display: flex;
+}
+.wg-container-flex_wrap {
+    flex-wrap: wrap;
+}
+.wg-container-flex_nowrap {
+    flex-wrap: nowrap;
+}
+.wg-container-flex_wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+.wg-container-flex_row-reverse {
+    flex-direction: row-reverse;
+}
+.wg-container-flex_column {
+    flex-direction: column;
+}
+.wg-container-flex_column-reverse {
+    flex-direction: column-reverse;
+}
+.wg-container-flex_justify-space-around {
+    justify-content: space-around;
+}
+.wg-container-flex_justify-space-between {
+    justify-content: space-between;
+}
+.wg-container-flex_justify-center {
+    justify-content: center;
+}
+.wg-container-flex_justify-flex-end {
+    justify-content: flex-end;
+}
+.wg-container-flex_align-center {
+    align-items: center;
+}
+.wg-container-flex_align-flex-end {
+    align-items: flex-end;
+}
+.wg-container-flex_align-baseline {
+    align-items: baseline;
+}
+.wg-container-flex_align-stretch {
+    align-items: stretch;
+}

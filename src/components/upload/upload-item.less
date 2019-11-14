@@ -1,0 +1,88 @@
+.wg-upload-item {
+        position: relative;
+        box-sizing: border-box;
+        border: 1px solid #ddd;
+        margin-left: -1px;
+        margin-top: -1px;
+        background-color: #fff;
+        padding: 0.5rem;
+        width: 10rem;
+        height: 10rem;
+        &:hover {
+            border-color: #21b100;
+            z-index: 1;
+        }
+        .wg-upload-item_file-wraper {
+            width: 8.9rem;
+            height: 8.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .wg-upload-item_file {
+                display: block;
+                cursor: pointer;
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .wg-upload-item_file-file {
+                width: 1.8rem;
+            }
+            .wg-upload-item_loading {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                max-width: 100px;
+                margin: 0 auto;
+                background-position: center center;
+                background-size: 100%;
+                background-repeat: no-repeat;
+                z-index: 99;
+                background-image: url(data:image/svg+xml,%3Csvg%20width%3D%22108px%22%20%20height%3D%22108px%22%20%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%20preserveAspectRatio%3D%22xMidYMid%22%20class%3D%22lds-ellipsis%22%20style%3D%22background%3A%20none%3B%22%3E%20%3Ccircle%20cx%3D%2284%22%20cy%3D%2250%22%20r%3D%220%22%20fill%3D%22%2344b549%22%3E%20%3Canimate%20attributeName%3D%22r%22%20values%3D%2210%3B0%3B0%3B0%3B0%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%220s%22%3E%3C%2Fanimate%3E%20%3Canimate%20attributeName%3D%22cx%22%20values%3D%2284%3B84%3B84%3B84%3B84%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%220s%22%3E%3C%2Fanimate%3E%20%3C%2Fcircle%3E%20%3Ccircle%20cx%3D%2216%22%20cy%3D%2250%22%20r%3D%229.57686%22%20fill%3D%22%2344b549%22%3E%20%3Canimate%20attributeName%3D%22r%22%20values%3D%220%3B10%3B10%3B10%3B0%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%22-1s%22%3E%3C%2Fanimate%3E%20%3Canimate%20attributeName%3D%22cx%22%20values%3D%2216%3B16%3B50%3B84%3B84%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%22-1s%22%3E%3C%2Fanimate%3E%20%3C%2Fcircle%3E%20%3Ccircle%20cx%3D%2284%22%20cy%3D%2250%22%20r%3D%220.423136%22%20fill%3D%22%2344b549%22%3E%20%3Canimate%20attributeName%3D%22r%22%20values%3D%220%3B10%3B10%3B10%3B0%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%22-0.5s%22%3E%3C%2Fanimate%3E%20%3Canimate%20attributeName%3D%22cx%22%20values%3D%2216%3B16%3B50%3B84%3B84%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%22-0.5s%22%3E%3C%2Fanimate%3E%20%3C%2Fcircle%3E%20%3Ccircle%20cx%3D%2282.5613%22%20cy%3D%2250%22%20r%3D%2210%22%20fill%3D%22%2344b549%22%3E%20%3Canimate%20attributeName%3D%22r%22%20values%3D%220%3B10%3B10%3B10%3B0%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%220s%22%3E%3C%2Fanimate%3E%20%3Canimate%20attributeName%3D%22cx%22%20values%3D%2216%3B16%3B50%3B84%3B84%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%220s%22%3E%3C%2Fanimate%3E%20%3C%2Fcircle%3E%20%3Ccircle%20cx%3D%2248.5613%22%20cy%3D%2250%22%20r%3D%2210%22%20fill%3D%22%2344b549%22%3E%20%3Canimate%20attributeName%3D%22r%22%20values%3D%220%3B0%3B10%3B10%3B10%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%220s%22%3E%3C%2Fanimate%3E%20%3Canimate%20attributeName%3D%22cx%22%20values%3D%2216%3B16%3B16%3B50%3B84%22%20keyTimes%3D%220%3B0.25%3B0.5%3B0.75%3B1%22%20keySplines%3D%220%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%3B0%200.5%200.5%201%22%20calcMode%3D%22spline%22%20dur%3D%222s%22%20repeatCount%3D%22indefinite%22%20begin%3D%220s%22%3E%3C%2Fanimate%3E%20%3C%2Fcircle%3E%20%3C%2Fsvg%3E);
+            }
+        }
+        .wg-upload-item_foot {
+            display: flex;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            align-items: center;
+            width: 100%;
+            line-height: 2rem;
+            font-size: 0.7rem;
+            color: #fff;
+            z-index: 999;
+            cursor: pointer;
+            .wg-upload-item_foot-item {
+                position: relative;
+                flex-grow: 1;
+                text-align: center;
+                border-right: 1px solid rgba(53, 53, 53, 0.2);
+                background-color: #21b100;
+                &:last-child {
+                    border-right: none;
+                }
+                .wg-upload-item_foot-item-span {
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .wg-upload-item_foot-input-hide {
+            position: absolute;
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+        }
+        .wg-upload-item_label {
+           position: absolute;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            line-height: 2rem;
+            z-index: 1;
+        }
+}

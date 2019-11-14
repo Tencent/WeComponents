@@ -1,0 +1,71 @@
+.wg-group-wraper {
+    padding: .5rem 0 .5rem 0;
+    .wg-component-main {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        align-items: baseline;
+
+        .wg-component-wraper {
+            display: flex;
+            align-items: baseline;
+            position: relative;
+            .wg-component-label {
+                width: 7em;
+                margin-right: 1em;
+                font-size: 0.7rem;
+                position: relative;
+            }
+            .wg-component-required::before {
+                content: "*";
+                position: absolute;
+                left: -0.5rem;
+                top: 0;
+                vertical-align: middle;
+                color: #e15f63;
+            }
+            .wg-component-entity {
+                flex: 1;
+                .wg-component-entity_main {
+                    position: relative;
+                    display: inline-block;
+                }
+                .wg-component-entity_bottom {
+                    font-size: .7rem;
+                    margin-top: .1rem;
+                    .wg-component-help {
+                        color: #8d8d8d;
+                    }
+                    .wg-component-validity_error {
+                        color: #e15f63;
+                    }
+                }
+            }
+        }
+
+        // upload组件特殊，不能使用baseline对齐
+        .wg-component-wraper_upload {
+            align-items: flex-start;
+        }
+
+        .wg-decoration-right {
+            margin-left: 1.5rem;
+        }
+
+        .wg-decoration-left {
+            margin-right: 1.5rem;
+        }
+    }
+}
+.wg-table .wg-group-wraper {
+    display: inline-block;
+}
+.wg-help-icon {
+    display: inline-block;
+    width: .6rem;
+    height: .6rem;
+    background-image: url("./assets/quest.png");
+    background-size: .6rem .6rem;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}

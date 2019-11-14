@@ -1,0 +1,168 @@
+.wg-pagination {
+    margin-top: .5rem;
+    text-align: center;
+    .wg-pagination-total {
+        font-size: .7rem;
+        margin-right: .5rem;
+    }
+    .wg-pagination-area {
+        letter-spacing: .2rem;
+        .wg-pagination-area_first, .wg-pagination-area_last  {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .wg-pagination-area_prev {
+            padding-left: .7rem;
+            padding-right: .7rem;
+            .wg-pagination-area_prev-arrow {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border: .3rem dashed transparent;
+                border-left-width: 0;
+                border-right-color: #666;
+                border-right-style: solid;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -.3rem;
+                margin-left: -.15rem;
+            }
+        }
+        .wg-pagination-area_num {
+            font-size: .7rem;
+            letter-spacing: normal;
+            line-height: 1.75rem;
+            display: inline-block;
+        }
+        .wg-pagination-area_next {
+            padding-left: .7rem;
+            padding-right: .7rem;
+            .wg-pagination-area_next-arrow {
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border: .3rem dashed transparent;
+                border-right-width: 0;
+                border-left-color: #666;
+                border-left-style: solid;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin-top: -.3rem;
+                margin-left: -.15rem;
+            }
+        }
+    }
+
+    .wg-pagination-goto {
+        .wg-pagination-goto_input {
+            vertical-align: middle;
+            width: 2rem;
+            height: 1.1rem;
+            line-height: 1.1rem;
+            padding: .2rem 0;
+            border: 1px solid #e6e7ec;
+            border-radius: .15rem;
+            -moz-border-radius: .15rem;
+            -webkit-border-radius: .15rem;
+            text-align: center;
+            font-size: .7rem;
+            margin-left: .2rem;
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+            }
+        }
+    }
+
+    .wg-pagination-item {
+        position: relative;
+        background-color: #fff;
+        border-color: #e6e7ec;
+        color: #333;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        width: auto;
+        padding-left: .7rem;
+        padding-right: .7rem;
+        letter-spacing: normal;
+        border-radius: .15rem;
+        background-clip: padding-box;
+        display: inline-block;
+        overflow: visible;
+        padding: 0 1.1rem;
+        vertical-align: middle;
+        text-align: center;
+        text-decoration: none;
+        font-size: .7rem;
+        border: 1px solid #e6e7ec;
+        cursor: pointer;
+    }
+}
+.page-panel {
+    height: 35px;
+    width: 400px;
+    text-align: center;
+    font-size: 14px;
+    margin: 20px auto;
+    box-sizing: border-box;
+}
+.page-panel .page-left {
+    display: inline-block;
+    height: 35px;
+    width: 240px;
+    text-align: center;
+    line-height: 35px;
+}
+.page-panel .page-right {
+    display: inline-block;
+    height: 35px;
+    width: 140px;
+    margin-left: 10px;
+    line-height: 35px;
+}
+.page-panel .page-right input {
+    width: 40px;
+    height: 30px;
+    padding: 4px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+.page-panel .page-btn {
+    text-decoration: none;
+    color: #000;
+    height: 30px;
+    padding: 5px 10px;
+    margin-left: 4px;
+    line-height: 30px;
+    width: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    position: relative;
+}
+.page-panel .page-btn:hover {
+    background: #f0f0f0;
+}
+.page-panel .page-icon {
+    position: absolute;
+    top: 8px;
+    width: 0;
+    height: 0;
+    border-color: rgba(255, 255, 255, 0) rgba(111, 111, 111, 1);
+    border-style: solid;
+}
+.page-panel .page-prev {
+    right: 8px;
+    border-width: 6px 6px 6px 0;
+}
+.page-panel .page-next {
+    right: 6px;
+    border-width: 6px 0 6px 6px;
+}
+.page-panel .page-num {
+    padding-left: 5px;
+}

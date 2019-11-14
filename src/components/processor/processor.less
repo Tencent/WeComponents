@@ -1,0 +1,55 @@
+.wg-component-processor {
+    display: flex;
+}
+.wg-processor-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.3rem;
+    position: relative;
+    // 最后一项不包含后缀横线
+    .wg-processor-item_main {
+        white-space: nowrap;
+        &:after {
+            content: "";
+            display: inline-block;
+            vertical-align: top;
+            margin-top: 0.5rem;
+            margin-left: 0.2rem;
+            width: 5rem;
+            height: 1px;
+            background-color: #ddd;
+        }
+    }
+    .wg-processor-item_index {
+        display: inline-block;
+        width: 0.9rem;
+        height: 0.9rem;
+        line-height: 0.9rem;
+        border: 1px solid #9a9a9a;
+        border-radius: 0.9rem;
+        font-size: 0.7rem;
+        color: #9a9a9a;
+        text-align: center;
+    }
+    .wg-processor-item_index-active {
+        background-color: #44b549;
+        border-color: #44b549;
+        color: #fff;
+    }
+    .wg-processor-item_label {
+        display: inline-block;
+        font-size: 0.7rem;
+        color: #7b7676;
+        margin-left: 0.2rem;
+        margin-top: -0.1rem;
+    }
+    .wg-processor-item_label-active {
+        color: #1aad19;
+    }
+    .wg-processor-item_extra {
+        padding-left: 1.4rem;
+        display: inline-block;
+        width: 6rem;
+        word-wrap: break-word;
+    }
+}
