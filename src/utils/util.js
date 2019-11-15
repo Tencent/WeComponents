@@ -29,6 +29,24 @@ function addPropsByComponent(component, originProps, dataProps) {
         events = originProps.events;
 
     switch (component) {
+        case 'chart':
+        case 'pie':
+        case 'ring':
+        case 'bar':
+        case 'line':
+        case 'graph':
+            dataProps.width = attributes.width;
+            dataProps.height = attributes.height;
+            dataProps.type = attributes.type;
+            dataProps.direction = attributes.direction;
+            dataProps.draggable = attributes.draggable;
+            dataProps.repulsion = attributes.repulsion;
+            dataProps.categories = attributes.categories;
+            if (component !== 'chart') {
+                dataProps.type = component;
+            }
+            break;
+
         case 'text':
             dataProps.size = attributes.size;
             dataProps.bold = attributes.bold;

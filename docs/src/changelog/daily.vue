@@ -13,7 +13,7 @@ let pageFields = [
     }
 ];
 
-import updateArray from './updateArray.js';
+import changelogList from './changlog.js';
 
 export default {
     name: 'update',
@@ -26,7 +26,7 @@ export default {
     },
 
     mounted() {
-        updateArray.forEach(item => {
+        changelogList.forEach(item => {
             const { date, version, messages } = item;
             let dateConfig = {
                 value: `${version}（${date}）`,
@@ -44,9 +44,9 @@ export default {
                     messagesConfig.push(messageConfig);
                 });
             }
-            this.container.appendItem('updateTextContainer', dateConfig);
+            this.page.appendItem('updateTextContainer', dateConfig);
             messagesConfig.forEach(messageConfig => {
-                this.container.appendItem('updateTextContainer', messageConfig);
+                this.page.appendItem('updateTextContainer', messageConfig);
             });
         });
     }

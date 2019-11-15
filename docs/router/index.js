@@ -1,5 +1,6 @@
 import Index from '@/src/Index';
 import PrincipleCLS from '@/src/principle/cls';
+import CaseWeComponents from '@/src/principle/case/wecomponents';
 import Container from '@/src/components/container/base';
 import Table from '@/src/components/container/table';
 import Input from '@/src/components/form/input';
@@ -12,16 +13,17 @@ import Textarea from '@/src/components/form/textarea';
 import Upload from '@/src/components/form/upload';
 import Dialog from '@/src/components/mention/dialog';
 import Tips from '@/src/components/mention/tips';
-import Access from '@/src/components/basic/access';
+import QuickStart from '@/src/components/basic/quickstart';
 import API from '@/src/components/basic/api';
 import SLOT from '@/src/components/basic/slot';
 import Checkbox from '@/src/components/form/checkbox';
 import Tab from '@/src/components/form/tab';
 import Calendar from '@/src/components/form/calendar';
+import ComponentCase from '@/src/examples/case/components.vue';
 import FormBlock from '@/src/examples/block/form';
 import TableBlock from '@/src/examples/block/table';
 import ChartBlock from '@/src/examples/block/chart';
-import Update from '@/src/update/update';
+import Changelog from '@/src/changelog/daily';
 
 // import Events from '@/src/basic/events';
 
@@ -53,30 +55,47 @@ export default {
                             }
                         }
                     ]
+                },
+                {
+                    path: '/doc/case',
+                    redirect: '/doc/case/wecomponents',
+                    component: Index,
+                    meta: {
+                        label: '实现案例'
+                    },
+                    children: [
+                        {
+                            path: '/doc/case/wecomponents',
+                            component: CaseWeComponents,
+                            meta: {
+                                label: 'WeComponents'
+                            }
+                        }
+                    ]
                 }
             ]
         },
         {
             path: '/components',
-            redirect: 'components/container',
+            redirect: 'components/basic/quickstart',
             alias: '/',
             component: Index,
             meta: {
-                label: '组件文档'
+                label: '组件说明'
             },
             children: [
                 {
                     path: '/components/basic',
                     component: Index,
                     meta: {
-                        label: '整体介绍'
+                        label: '开发指南'
                     },
                     children: [
                         {
-                            path: '/components/basic/access',
-                            component: Access,
+                            path: '/components/basic/quickstart',
+                            component: QuickStart,
                             meta: {
-                                label: '接入指引'
+                                label: '快速入门'
                             }
                         },
                         {
@@ -86,13 +105,13 @@ export default {
                                 label: '组件API'
                             }
                         },
-                        {
-                            path: '/components/basic/slot',
-                            component: SLOT,
-                            meta: {
-                                label: '使用插槽'
-                            }
-                        }
+                        // {
+                        //     path: '/components/basic/slot',
+                        //     component: SLOT,
+                        //     meta: {
+                        //         label: '使用插槽'
+                        //     }
+                        // }
                     ]
                 },
                 {
@@ -235,35 +254,52 @@ export default {
             redirect: '/block/tob',
             component: Index,
             meta: {
-                label: '区块示例'
+                label: '组件示例'
             },
             children: [
+                {
+                    path: '/block/case',
+                    redirect: '/block/case/components',
+                    meta: {
+                        label: '组件展示'
+                    },
+                    component: Index,
+                    children: [
+                        {
+                            path: '/block/case/components',
+                            meta: {
+                                label: '效果展示'
+                            },
+                            component: ComponentCase
+                        }
+                    ]
+                },
                 {
                     path: '/block/tob',
                     redirect: '/block/tob/form',
                     meta: {
-                        label: 'B端常用区块'
+                        label: '常用区块'
                     },
                     component: Index,
                     children: [
                         {
                             path: '/block/tob/form',
                             meta: {
-                                label: '表单'
+                                label: '注册表单'
                             },
                             component: FormBlock
                         },
                         {
                             path: '/block/tob/table',
                             meta: {
-                                label: '表格'
+                                label: '查询列表'
                             },
                             component: TableBlock
                         },
                         {
                             path: '/block/tob/chart',
                             meta: {
-                                label: '图表'
+                                label: '图表展示'
                             },
                             component: ChartBlock
                         }
@@ -272,19 +308,19 @@ export default {
             ]
         },
         {
-            path: '/update',
-            redirect: '/update/daily',
+            path: '/changelog',
+            redirect: '/changelog/daily',
             component: Index,
             meta: {
                 label: '更新日志'
             },
             children: [
                 {
-                    path: '/update/daily',
+                    path: '/changelog/daily',
                     meta: {
                         label: '更新日志'
                     },
-                    component: Update
+                    component: Changelog
                 }
             ]
         }

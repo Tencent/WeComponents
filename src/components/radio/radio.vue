@@ -29,7 +29,11 @@
                 <div class="wg-component-entity">
                     <div class="wg-component-entity_main">
                         <span :class="['wg-radio', id ? id + '_radio' : '']">
-                            <label v-for="(item, index) in items" :key="index">
+                            <label
+                                v-for="(item, index) in items"
+                                :key="index"
+                                class="wg-radio-item"
+                            >
                                 <!-- eslint-disable -->
                                 <input
                                     type="radio"

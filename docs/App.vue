@@ -4,9 +4,14 @@
             <div class="mod-frame__head-wrap">
                 <div class="mod-header ui-clearfix">
                     <a href="javascript:;">
-                        <h1 class="mod-header__logo">微信游戏</h1>
+                        <h1 class="mod-header__logo">
+                            <img
+                                src="//res.wx.qq.com/wechatgame/product/cdn/wecomponents/logo_d586b864.png"
+                                height="50"
+                                width="200"
+                            />
+                        </h1>
                         <h2 class="mod-header__title">
-                            <em class="mod-header__name" v-if="name">{{ name }}</em>
                             <sub class="mod-header__ver" v-if="version">{{ version }}</sub>
                         </h2>
                     </a>
@@ -133,9 +138,8 @@ export default {
         return {
             JS_DEV,
             name: '组件库',
-            version: '1.0.328',
+            version: '2.0.7',
             username: 'weadmin',
-            avatar: '//wximg.qq.com/wxgame/rs/plat/default_head.png?max_age=2592000',
             currentQuery: {},
             currentRouter: {},
             matchedRouter: [],
@@ -155,7 +159,7 @@ export default {
 
     watch: {
         $route: {
-            handler: function(to, from) {
+            handler: function (to, from) {
                 this.watchRoute(to, from);
 
                 let firstRoute = gFirstRouteMapping[to.path];
@@ -186,7 +190,7 @@ export default {
                     .split('/')
                     .slice(1)
                     .slice(0, 1)[0]
-            }`;
+                }`;
 
             // 从一级导航中，取出当前的导航根节点
             currentRoutes = this.routerConfig.routes.filter(route => {
@@ -210,7 +214,7 @@ export default {
             }
         },
 
-        goPreviousLayer: function() {
+        goPreviousLayer: function () {
             this.$router.go(-1);
         }
     }
@@ -273,7 +277,6 @@ function getLayerRoute(currentRoutes, matchedRouter, layerIndex) {
 }
 .mod-header__logo {
     margin-top: 6px;
-    background: url(//wximg.qq.com/wxgame/temp/623ff19b83746c1f40e4209935c2c7e8.png) 0 50% no-repeat;
     background-size: 42px;
     padding-left: 52px;
     color: #333;
@@ -329,9 +332,6 @@ function getLayerRoute(currentRoutes, matchedRouter, layerIndex) {
 .mod-header__nav-item.router-link-active {
     background-color: #f0f0f0;
     border-bottom: 3px solid #4faa38;
-}
-.mod-header__account-avatar {
-    border-radius: 999rem;
 }
 .fade-enter-active,
 .fade-leave-active {

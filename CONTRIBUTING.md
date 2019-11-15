@@ -3,7 +3,7 @@
 **安装组件**
 
 ```console
-npm install @tencent/wecomponents
+npm install @weadmin/wecomponents
 ```
 
 **开发组件**

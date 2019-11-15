@@ -35,8 +35,24 @@
 		["upload", VUpload],
 		["tab", VTab],
 		["calendar", VCalendar],
+		["pie", VChart],
+		["ring", VChart],
+		["line", VChart],
+		["bar", VChart],
+		["graph", VChart],
 		["chart", VChart]
 	]);
+
+	function isChart(component) {
+		return (
+			component === "chart" ||
+			component === "pie" ||
+			component === "ring" ||
+			component === "line" ||
+			component === "bar" ||
+			component === "graph"
+		);
+	}
 
 	// 避免template中的if/else导致的文件长度过长、可读性下降问题，已key-value结构存储对应组件
 	function getRealComponent(componentName) {
@@ -54,7 +70,7 @@
 			isArrayValueComponent =
 				originDataProps.component === "table" ||
 				originDataProps.component === "checkbox" ||
-				originDataProps.component === "chart";
+				isChart(originDataProps.component);
 
 		// 缺省补全
 		!originDataProps.attributes && (originDataProps.attributes = {});

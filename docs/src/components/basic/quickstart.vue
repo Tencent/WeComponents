@@ -4,11 +4,23 @@ import WeComponents from '../../../../src/';  // 引入组件库
 
 let pageFields = [
     {
-        value: '组件库接入指引',
+        value: '快速入门',
         attributes: {
             size: 'large',
             bold: true
         }
+    },
+    {
+        value: '0. 安装',
+        attributes: {
+            size: 'medium',
+            bold: true
+        }
+    },
+    {
+        value: `<pre><code>
+    npm install --save @weadmin/wecomponents;
+</code></pre>`
     },
     {
         value: '1. 引入WeComponents',
@@ -19,7 +31,7 @@ let pageFields = [
     },
     {
         value: `<pre><code>
-    import WeComponents from "@tencent/wecomponents";
+    import WeComponents from "@weadmin/wecomponents";
 </code></pre>`
     },
     {
@@ -66,7 +78,7 @@ let pageFields = [
     },
     {
         value: `<pre><code>
-    import WeComponents from "@tencent/wecomponents";
+    import WeComponents from "@weadmin/wecomponents";
 
     let pageFields = [
         {

@@ -20,7 +20,7 @@ WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声�
 * 符合一般人对功能的认知
 * 合适的场景，合适的支持
 
-目前主要包含表单、列表、图表三类组件的实现，更多细节见[组件说明文档](components.md)。
+目前主要包含表单、列表、图表三类组件的实现，更多请查看[说明文档](https://weadmin.github.io/WeComponentsDocs/)。
 
 ## 使用说明
 

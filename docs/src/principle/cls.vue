@@ -1,20 +1,32 @@
 <template>
     <div>
-        <h1 id="toc_0">WeAdmin CLS</h1>
+        <h1 id="toc_0">通用组件语言规范（Common Components Language Specification）</h1>
 
-        <p>WeAdmin CLS(Common/Components Language Specs)是一套与语言、框架无关的组件通用语言规范，用以解决组件库一致性、易用性的问题。</p>
+        <p>通用组件语言规范 (简称CLS) 是将所有组件抽象为统一模型的一种标准描述方式，与语言、框架无关。</p>
 
         <h2 id="toc_1">设计原则</h2>
 
         <ul>
-            <li>数据驱动：以数据描述组件/页面的结构和功能</li>
-            <li>语义化：页面JSON描述接近日常语言和思维</li>
-            <li>对开发者友好：简洁一致的API签名；同时支持同步和异步调用；提供合理的警告和错误文案</li>
+            <li>数据驱动：UI 也是数据，以数据结构描述组件，以组件描述页面</li>
+            <li>开发者友好：低门槛，学习了一种组件语言，就学会了整个组件库的使用；易理解，易记忆，易使用</li>
+            <li>语义化：符合一般人对功能的认知</li>
         </ul>
 
         <h2 id="toc_2">内容</h2>
+        <p>通用组件语言规范的属性分为：</p>
+        <ul>
+            <li>
+                <strong>基础信息</strong>：id、name、label、component、value
+            </li>
+            <li>
+                <strong>实体属性</strong>：包含 Attributes、Events、Items、Validity 的子级结构
+            </li>
+            <li>
+                <strong>扩展属性</strong>：extra
+            </li>
+        </ul>
 
-        <h3 id="toc_3">Name</h3>
+        <h3 id="toc_3">名称定义</h3>
 
         <table>
             <thead>
@@ -22,6 +34,7 @@
                     <th>参数名</th>
                     <th>类型</th>
                     <th>必填</th>
+                    <th>默认值</th>
                     <th>说明</th>
                 </tr>
             </thead>
@@ -31,94 +44,101 @@
                     <td>id</td>
                     <td>String</td>
                     <td>是</td>
-                    <td>组件的唯一标识</td>
+                    <td>''</td>
+                    <td>唯一标识，用于区分每一个组件实例</td>
                 </tr>
                 <tr>
                     <td>name</td>
                     <td>String</td>
                     <td>否</td>
-                    <td>组件承载数据的key</td>
+                    <td>''</td>
+                    <td>数据标识，用于提交到服务端</td>
                 </tr>
                 <tr>
                     <td>label</td>
                     <td>String</td>
                     <td>否</td>
+                    <td>''</td>
                     <td>若传入String，则显示为纯文本</td>
+                </tr>
+                <tr>
+                    <td>component</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>组件类型，取值依赖组件的实现</td>
+                </tr>
+                <tr>
+                    <td>value</td>
+                    <td>String/Array/Object</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>组件取值，具体类型依赖validity.format 决定</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_4">Entity</h3>
+        <h3 id="toc_4">实体定义</h3>
 
         <table>
             <thead>
                 <tr>
-                    <th>参数名</th>
+                    <th>名称</th>
                     <th>类型</th>
                     <th>必填</th>
+                    <th>默认值</th>
                     <th>说明</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>component</td>
-                    <td>String</td>
-                    <td>否</td>
-                    <td>组件名称，唯一</td>
-                </tr>
-                <tr>
-                    <td>value</td>
-                    <td>String/Array/Object</td>
-                    <td>否</td>
-                    <td>组件承载数据的value</td>
-                </tr>
-                <tr>
                     <td>attributes</td>
                     <td>Attributes</td>
                     <td>否</td>
-                    <td>控制组件原生属性和自定义属性的集合，例如input的readonly、placeholder，自定义组件的disabled等</td>
+                    <td>-</td>
+                    <td>组件属性，详见 Attributes 定义</td>
                 </tr>
                 <tr>
                     <td>events</td>
                     <td>Events</td>
                     <td>否</td>
-                    <td>组件支持的事件集合</td>
+                    <td>-</td>
+                    <td>组件触发的事件，详见 Events 定义</td>
                 </tr>
                 <tr>
                     <td>items</td>
                     <td>Array</td>
                     <td>否</td>
-                    <td>对于所有需要列表数据的组件，统一使用items传入，使用场景如select的下拉列表，表格列配置等</td>
-                </tr>
-                <tr>
-                    <td>decoration</td>
-                    <td>Array</td>
-                    <td>否</td>
-                    <td>对于所有需要列表数据的组件，统一使用items传入，使用场景如select的下拉列表，表格列配置等</td>
+                    <td>-</td>
+                    <td>下个层级，嵌套的树状结构</td>
                 </tr>
                 <tr>
                     <td>validity</td>
                     <td>Object</td>
                     <td>否</td>
-                    <td>使用表单提交数据时的校验，会依据format的具体值选择对应的校验逻辑，如需了解细节，可参考“format-validity对应表”</td>
+                    <td>-</td>
+                    <td>数据有效性校验，详见 Validity 定义</td>
                 </tr>
                 <tr>
                     <td>extra</td>
                     <td>Object</td>
                     <td>否</td>
-                    <td>在引入外部组件的场景下，用于向外部组件透传属性</td>
+                    <td>-</td>
+                    <td>扩展属性，透传</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_5">Attributes</h3>
+        <h3 id="toc_5">Attributes 定义</h3>
 
         <table>
             <thead>
                 <tr>
-                    <th>参数名</th>
+                    <th>名称</th>
                     <th>类型</th>
+                    <th>必填</th>
+                    <th>默认值</th>
                     <th>说明</th>
                 </tr>
             </thead>
@@ -127,17 +147,44 @@
                 <tr>
                     <td>class</td>
                     <td>String</td>
-                    <td>组件顶层的CSS类名</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>组件容器的样式名</td>
                 </tr>
                 <tr>
                     <td>style</td>
                     <td>String</td>
-                    <td>组件顶层的style</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>组件容器的style</td>
+                </tr>
+                <tr>
+                    <td>placeholder</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>''</td>
+                    <td>默认占位文案</td>
+                </tr>
+                <tr>
+                    <td>defaults</td>
+                    <td>Array</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>默认展示，如items的默认展示</td>
                 </tr>
                 <tr>
                     <td>hide</td>
                     <td>Boolean</td>
-                    <td>组件是否隐藏</td>
+                    <td>否</td>
+                    <td>false</td>
+                    <td>是否隐藏</td>
+                </tr>
+                <tr>
+                    <td>multiple</td>
+                    <td>Boolean</td>
+                    <td>否</td>
+                    <td>false</td>
+                    <td>是否items子项可多选</td>
                 </tr>
                 <tr>
                     <td>disabled</td>
@@ -147,60 +194,48 @@
                 <tr>
                     <td>readonly</td>
                     <td>Boolean</td>
-                    <td>设置组件的值时，需进行二次确认</td>
-                </tr>
-                <tr>
-                    <td>placeholder</td>
-                    <td>String</td>
-                    <td>value为空时的默认展示文案</td>
-                </tr>
-                <tr>
-                    <td>sortable</td>
-                    <td>Boolean</td>
-                    <td>items中的每项是否能够拖动改变顺序</td>
-                </tr>
-                <tr>
-                    <td>searchable</td>
-                    <td>Boolean</td>
-                    <td>是否支持对items的搜索</td>
-                </tr>
-                <tr>
-                    <td>multiple</td>
-                    <td>Boolean</td>
-                    <td>是否支持对items的多选</td>
-                </tr>
-                <tr>
-                    <td>defaults</td>
-                    <td>Array</td>
-                    <td>items的默认值</td>
-                </tr>
-                <tr>
-                    <td>resetable</td>
-                    <td>Boolean</td>
-                    <td>是否在组件本身支持清空value</td>
+                    <td>否</td>
+                    <td>false</td>
+                    <td>是否只读</td>
                 </tr>
                 <tr>
                     <td>repeated</td>
                     <td>Boolean</td>
-                    <td>当容器组件设置repeated为true时，则根据value的值，循环渲染items对应的组件</td>
+                    <td>否</td>
+                    <td>false</td>
+                    <td>是否组件子项为可重复的</td>
                 </tr>
                 <tr>
-                    <td>placement</td>
-                    <td>String</td>
-                    <td>decoration元素的相对位置</td>
+                    <td>sortable</td>
+                    <td>Boolean</td>
+                    <td>否</td>
+                    <td>false</td>
+                    <td>是否支持对items子项排序</td>
+                </tr>
+                <tr>
+                    <td>searchable</td>
+                    <td>Boolean</td>
+                    <td>是否支持对items子项搜索</td>
+                </tr>
+                <tr>
+                    <td>resetable</td>
+                    <td>Boolean</td>
+                    <td>否</td>
+                    <td>false</td>
+                    <td>是否支持清空value</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_6">Events</h3>
-
-        <h4 id="toc_7">通用事件</h4>
+        <h3 id="toc_6">Events 定义</h3>
 
         <table>
             <thead>
                 <tr>
-                    <th>事件名</th>
-                    <th>事件参数</th>
+                    <th>名称</th>
+                    <th>参数</th>
+                    <th>必填</th>
+                    <th>默认值</th>
                     <th>说明</th>
                 </tr>
             </thead>
@@ -208,62 +243,58 @@
             <tbody>
                 <tr>
                     <td>click</td>
-                    <td>
-                        this: 当前组件的JSON对象
-                        <br />event: 当前事件对象
-                    </td>
-                    <td>监听组件的点击事件</td>
+                    <td>Function</td>
+                    <td>否</td>
+                    <td>onClick</td>
+                    <td>抛出当前组件的点击事件</td>
                 </tr>
                 <tr>
-                    <td>dbClick</td>
-                    <td>
-                        this: 当前组件的JSON对象
-                        <br />event: 当前事件对象
-                    </td>
-                    <td>监听组件的双击事件</td>
+                    <td>dblClick</td>
+                    <td>Function</td>
+                    <td>否</td>
+                    <td>onDblClick</td>
+                    <td>抛出当前组件的双击事件</td>
                 </tr>
                 <tr>
                     <td>mouseEnter</td>
-                    <td>
-                        this: 当前组件的JSON对象
-                        <br />event: 当前事件对象
-                    </td>
-                    <td>监听组件的鼠标移入事件</td>
+                    <td>Function</td>
+                    <td>否</td>
+                    <td>onMouseEnter</td>
+                    <td>抛出当前组件的鼠标移入事件</td>
                 </tr>
                 <tr>
                     <td>mouseLeave</td>
-                    <td>
-                        this: 当前组件的JSON对象
-                        <br />event: 当前事件对象
-                    </td>
-                    <td>监听组件的鼠标移出事件</td>
+                    <td>Function</td>
+                    <td>否</td>
+                    <td>onMouseLeave</td>
+                    <td>抛出当前组件的鼠标移出事件</td>
                 </tr>
                 <tr>
                     <td>change</td>
-                    <td>
-                        this: 当前组件的JSON对象
-                        <br />event: 当前事件对象
-                    </td>
-                    <td>监听组件值的变化</td>
+                    <td>Function</td>
+                    <td>否</td>
+                    <td>onChange</td>
+                    <td>抛出当前组件的值变化</td>
                 </tr>
                 <tr>
                     <td>dragEnd</td>
-                    <td>
-                        this: 当前组件的JSON对象
-                        <br />event: 当前事件对象
-                    </td>
-                    <td>拖拽事件结束时的钩子函数，仅当attributes.draggable为true时生效</td>
+                    <td>Function</td>
+                    <td>否</td>
+                    <td>onDragEnd</td>
+                    <td>抛出当前组件的拖拽结束事件</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_8">通用validity属性</h3>
+        <h3 id="toc_7">Validity 定义</h3>
 
         <table>
             <thead>
                 <tr>
-                    <th>参数名</th>
+                    <th>名称</th>
                     <th>类型</th>
+                    <th>必填</th>
+                    <th>默认值</th>
                     <th>说明</th>
                 </tr>
             </thead>
@@ -272,286 +303,156 @@
                 <tr>
                     <td>required</td>
                     <td>String</td>
+                    <td>否</td>
+                    <td>false</td>
                     <td>组件值是否必填</td>
                 </tr>
                 <tr>
                     <td>format</td>
                     <td>String</td>
+                    <td>否</td>
+                    <td>-</td>
                     <td>组件值的数据类型，包含String/Number/StringArray/StringArrayCommas</td>
                 </tr>
+                <tr>
+                    <td>min</td>
+                    <td>Number</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>最小值/最小长度</td>
+                </tr>
+                <tr>
+                    <td>max</td>
+                    <td>Number</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>最大值/最大长度</td>
+                </tr>
+                <tr>
+                    <td>pattern</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>正则表达式</td>
+                </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_9">format/validity对应关系</h3>
-
-        <ul>
-            <li>当format指定后，validity会对当前组件的值基于Object.prototype.toString.call进行类型判断</li>
-            <li>不同的format类型对应不同的最大/最小值参数，列表如下：</li>
-        </ul>
-
+        <h2 id="toc_8">方法</h2>
         <table>
             <thead>
                 <tr>
-                    <th>format</th>
-                    <th>validity</th>
+                    <th>方法名</th>
+                    <th>说明</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>String</td>
-                    <td>
-                        min: 字符串的最小长度
-                        <br />max: 字符串的最大长度
-                    </td>
+                    <td>getValue(name)</td>
+                    <td>获取组件的value取值，并结合validity的format字段，返回对应数据类型的value</td>
                 </tr>
                 <tr>
-                    <td>Number</td>
-                    <td>
-                        min: 数字的最小值
-                        <br />max: 数字的最大值
-                    </td>
+                    <td>setValue(name, value)</td>
+                    <td>设置组件的value取值，value入参需结合validity的format字段，传入对应的数据类型</td>
+                </tr>
+                <tr>
+                    <td>getAttribute(name)</td>
+                    <td>获取组件属性</td>
+                </tr>
+                <tr>
+                    <td>setAttribute(name, value)</td>
+                    <td>设置组件属性</td>
+                </tr>
+                <tr>
+                    <td>getAttributes(name)</td>
+                    <td>获取组件属性</td>
+                </tr>
+                <tr>
+                    <td>setAttributes(name, values)</td>
+                    <td>设置组件属性</td>
+                </tr>
+                <tr>
+                    <td>show(id)</td>
+                    <td>展示指定组件</td>
+                </tr>
+                <tr>
+                    <td>hide(id)</td>
+                    <td>隐藏制定组件</td>
+                </tr>
+                <tr>
+                    <td>getItem(id)</td>
+                    <td>获取组件和其完整的配置</td>
+                </tr>
+                <tr>
+                    <td>removeItem(id)</td>
+                    <td>删除组件</td>
+                </tr>
+                <tr>
+                    <td>trigger(eventData)</td>
+                    <td>触发对应事件</td>
                 </tr>
             </tbody>
         </table>
 
-        <h2 id="toc_10">特殊接口：各组件额外配置</h2>
-
-        <h3 id="toc_11">特殊属性</h3>
-
-        <p>部分组件提供着比较特殊的功能，对于这部分功能，如果强行归类到基础API中反而会造成开发者理解上的负担，因此，对于这类功能，我们提供了只在对应组件上才生效的特殊的API，列表如下：</p>
-
+        <h2 id="toc_9">Event Data 定义</h2>
         <table>
             <thead>
                 <tr>
-                    <th>组件名</th>
-                    <th>参数名</th>
+                    <th>名称</th>
                     <th>类型</th>
                     <th>必填</th>
-                    <th>说明</th>
                     <th>默认值</th>
+                    <th>说明</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr>
-                    <td>VCalendar</td>
-                    <td>attributes.accept</td>
+                    <td>type</td>
                     <td>String</td>
                     <td>是</td>
-                    <td>日期组件接受的日期格式，如YYYY-MM-DD、YYYY-MM-DD HH:mm等</td>
-                    <td>YYYY-MM-DD HH:mm:ss</td>
+                    <td>-</td>
+                    <td>自定义的事件名</td>
                 </tr>
                 <tr>
-                    <td>VImg</td>
-                    <td>attributes.accept</td>
-                    <td>String</td>
+                    <td>data</td>
+                    <td>Object</td>
                     <td>是</td>
-                    <td>图片组件接受的图片格式，包含png、jpg等常用图片格式</td>
-                    <td>png</td>
+                    <td>-</td>
+                    <td>此事件对应的组件的值</td>
                 </tr>
                 <tr>
-                    <td>VUpload</td>
-                    <td>apis.beforeUpload</td>
-                    <td>Function</td>
-                    <td>否</td>
-                    <td>图片上传前的钩子函数</td>
-                    <td>无</td>
+                    <td>target</td>
+                    <td>Object</td>
+                    <td>是</td>
+                    <td>-</td>
+                    <td>触发此事件的组件实例</td>
                 </tr>
                 <tr>
-                    <td>VPagination</td>
-                    <td>attributes.pageSize</td>
-                    <td>Number</td>
-                    <td>否</td>
-                    <td>分页组件每页展示的最大条数</td>
-                    <td>10</td>
+                    <td>targetItem</td>
+                    <td>Object</td>
+                    <td>是</td>
+                    <td>-</td>
+                    <td>触发此事件的组件的配置</td>
                 </tr>
                 <tr>
-                    <td>VPagination</td>
-                    <td>attributes.total</td>
-                    <td>Number</td>
-                    <td>否</td>
-                    <td>分页组件的总页数</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>VPagination</td>
-                    <td>attributes.showTotalNum</td>
-                    <td>Boolean</td>
-                    <td>否</td>
-                    <td>是否展示分页组件的对应数据的总条数</td>
-                    <td>false</td>
-                </tr>
-                <tr>
-                    <td>VCheckbox</td>
-                    <td>
-                        field.itemKey: checkbox对应的列表配置
-                        <br />field.itemKey的每一项设为item:
-                        <br />item.labelField: 列表每项的展示值对应的字段key值
-                        <br />item.valueField: 列表每项的实际值对应的字段key值
-                    </td>
-                    <td>
-                        itemKey: Array
-                        <br />itemKey中的每一项: Object
-                        <br />labelField: String
-                        <br />valueField: String
-                    </td>
-                    <td>否</td>
-                    <td>Checkbox的特殊实现，用以实现数据与列表每项的展示值和实际值的对应关系</td>
-                    <td>无</td>
+                    <td>nativeEvent</td>
+                    <td>Object</td>
+                    <td>是</td>
+                    <td>-</td>
+                    <td>原生事件对象</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_12">特殊事件</h3>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>组件名</th>
-                    <th>事件名</th>
-                    <th>事件参数</th>
-                    <th>说明</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>VDynamicTag</td>
-                    <td>add</td>
-                    <td>type: 子事件类型，目前仅有append和默认值</td>
-                    <td>监听dynamicTag的增加</td>
-                </tr>
-                <tr>
-                    <td>VDynamicTag</td>
-                    <td>remove</td>
-                    <td>
-                        type: 子事件类型，目前仅有array和默认值
-                        <br />index: 删除的tag在当前数组中的位置
-                    </td>
-                    <td>监听dynamicTag的删除</td>
-                </tr>
-                <tr>
-                    <td>VUpload</td>
-                    <td>success</td>
-                    <td>
-                        context: 单图上传成功时的上下文
-                        <br />name: 组件id
-                        <br />res: 上传成功后服务器返回的response对象
-                        <br />fileName: 图片名称
-                        <br />item:图片对象
-                    </td>
-                    <td>监听组件的鼠标移出事件</td>
-                </tr>
-                <tr>
-                    <td>VUpload</td>
-                    <td>fail</td>
-                    <td>res: 服务器返回的response对象</td>
-                    <td>监听图片的上传失败事件</td>
-                </tr>
-                <tr>
-                    <td>VUpload</td>
-                    <td>remove</td>
-                    <td>
-                        context: 当前事件的上下文
-                        <br />event: 事件对象
-                    </td>
-                    <td>监听图片的删除事件</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 id="toc_13">特殊validity属性</h3>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>参数名</th>
-                    <th>类型</th>
-                    <th>说明</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>width</td>
-                    <td>Number</td>
-                    <td>组件允许的图片的宽度，单位为px</td>
-                </tr>
-                <tr>
-                    <td>height</td>
-                    <td>Number</td>
-                    <td>组件允许的图片的高度，单位为px</td>
-                </tr>
-                <tr>
-                    <td>size</td>
-                    <td>Number</td>
-                    <td>组件允许的文件最大值，单位为kb</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="toc_14">使用extra为外部组件透传参数</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>组件名</th>
-                    <th>参数名</th>
-                    <th>类型</th>
-                    <th>必填</th>
-                    <th>说明</th>
-                    <th>默认值</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>VTree</td>
-                    <td>extra.scoped</td>
-                    <td>Boolean</td>
-                    <td>是</td>
-                    <td>是否隔离节点选中状态</td>
-                    <td>无</td>
-                </tr>
-                <tr>
-                    <td>VTree</td>
-                    <td>extra.template</td>
-                    <td>Function</td>
-                    <td>是</td>
-                    <td>自定义模板</td>
-                    <td>无</td>
-                </tr>
-                <tr>
-                    <td>VTree</td>
-                    <td>extra.halfcheck</td>
-                    <td>Boolean</td>
-                    <td>是</td>
-                    <td>节点是否为半选</td>
-                    <td>无</td>
-                </tr>
-                <tr>
-                    <td>VQueryBuilder</td>
-                    <td>
-                        field.extra.rules: 规则数组
-                        <br />field.extra.styled: 样式对象
-                        <br />field.extra.maxDepth: 规则的最大嵌套深度
-                        <br />
-                    </td>
-                    <td>
-                        field.extra.rules: Array
-                        <br />field.extra.styled: Object
-                        <br />field.extra.maxDepth: Number
-                        <br />
-                    </td>
-                    <td>是</td>
-                    <td>基于外部组件，实现为属性的透传</td>
-                    <td>无</td>
-                </tr>
-            </tbody>
-        </table>
+        <h2 id="toc_10">实例</h2>
+        <p>
+            <a href="https://github.com/Tencent/WeComponents">WeComponents</a> 是基于 CLS 在Vue.js的一个实现。
+        </p>
     </div>
 </template>
+
 <style type="text/css" scoped>
 body {
     font-family: Helvetica, arial, sans-serif;

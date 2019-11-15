@@ -52,7 +52,7 @@ let baseConfig = {
             'svg'
         ],
         alias: {
-            wecomponents: '@tencent/wecomponents'
+            wecomponents: '@weadmin/wecomponents'
         }
     },
     plugins: [],
@@ -82,7 +82,7 @@ let baseConfig = {
     },
     performance: {
         hints: isProduction ? 'warning' : false,
-        assetFilter: function(assetFilename) {
+        assetFilter: function (assetFilename) {
             return assetFilename.endsWith('.js') || assetFilename.endsWith('.css');
         }
     }
