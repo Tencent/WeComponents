@@ -191,6 +191,11 @@
 import Emitter from '../../mixins/emitter.js';
 import util from '../../utils/util.js';
 import _ from 'lodash';
+import Dialog from '../dialog/index.js'
+import Tips from '../tips/index.js'
+
+const dialog = new Dialog();
+const tips = new Tips();
 /**
  * @displayName Select
  * @groupName 表单类

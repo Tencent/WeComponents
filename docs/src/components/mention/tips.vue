@@ -36,13 +36,11 @@ let pageFields = [
         clickEventName: "mentionSuccess"
       }
     },
-    // 在methods.eventHanlder中监听button指定的事件
-    eventHandler(event) {
-      switch (event.type) {
-        case 'mentionSuccess':
-          tips.success('tips.success通常用于告知用户操作成功')
-          break;
-      }
+    // 在methods接收button指定的事件
+    methods() {
+        mentionSuccess(){
+            this.page.tips.success('tips.success通常用于告知用户操作成功')
+        }
     }
                                 </code></pre>`
     },
@@ -69,13 +67,11 @@ let pageFields = [
         clickEventName: "mentionError"
       }
     },
-    // 在methods.eventHanlder中监听button指定的事件
-    eventHandler(event) {
-      switch (event.type) {
-        case "mentionError":
-          tips.error("tips.error通常用于告知用户操作失败或信息获取失败");
-          break;
-      }
+    // 在methods中接收button指定的事件
+    methods() {
+        mentionError(){
+            this.page.tips.error("tips.error通常用于告知用户操作失败或信息获取失败");
+        }
     }
                                 </code></pre>`
     }
@@ -96,15 +92,11 @@ export default {
     },
 
     methods: {
-        eventHandler(event) {
-            switch (event.type) {
-                case 'mentionSuccess':
-                    tips.success('tips.success 通常用于告知用户操作成功');
-                    break;
-                case 'mentionError':
-                    tips.error('tips.error 通常用于告知用户操作失败或信息获取失败');
-                    break;
-            }
+        mentionSuccess() {
+            this.page.tips.success('tips.success 通常用于告知用户操作成功');
+        },
+        mentionError() {
+            this.page.tips.error('tips.error 通常用于告知用户操作失败或信息获取失败');
         }
     }
 };

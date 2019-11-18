@@ -107,6 +107,10 @@
 <script>
 import Emitter from '../../mixins/emitter.js';
 import util from '../../utils/util.js';
+import Dialog from '../dialog/index';
+
+const dialog = new Dialog();
+
 /**
  * @displayName Input
  * @groupName 表单类
@@ -255,7 +259,7 @@ export default {
         size: {
             type: String,
             default: 'medium',
-            validator: function(type) {
+            validator: function (type) {
                 return ['large', 'medium', 'small'].indexOf(type) !== -1;
             }
         },
@@ -276,7 +280,7 @@ export default {
         format: {
             type: String,
             default: 'String',
-            validator: function(type) {
+            validator: function (type) {
                 return ['String', 'Number'].indexOf(type) !== -1;
             }
         },
@@ -492,8 +496,7 @@ export default {
          * Input组件双击事件
          * <event>onInputDblClick</event>
          *
-         * 若未自定义，则执行默认行为：修改当前Input组件只读属性为false
-         * 若自定义，则不执行默认行为，并抛出事件
+         * 监听并抛出双击事件
          *
          * <customParam>
          *  type{string}  事件名称;
@@ -504,21 +507,21 @@ export default {
          * @public
          */
         handleDblClick(event) {
-            if (this.dblClickEventName !== 'onInputDblClick') {
-                this._editable();
-            } else {
-                this._currentPageInstance.collectEvent({
-                    type: this.dblClickEventName,
-                    data: this.val,
-                    target: this,
-                    nativeEvent: event
-                });
-            }
+            this._currentPageInstance.collectEvent({
+                type: this.dblClickEventName,
+                data: this.val,
+                target: this,
+                nativeEvent: event
+            });
         },
+
         _editable() {
             dialog.confirm('确定编辑此字段吗？', rt => {
                 if (rt) {
                     this.componentReadonly = false;
+                    if (this.$refs && this.$refs.input) {
+                        this.$refs.input.focus();
+                    }
                 }
             });
         }

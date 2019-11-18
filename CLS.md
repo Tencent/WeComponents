@@ -23,7 +23,7 @@
  * 实体属性：包含 Attributes、Events、Items、Validity 的子级结构
  * 扩展属性：extra
 
-### 基础信息
+### 基础属性定义
 
 当前组件实例的标识。
 
@@ -35,7 +35,7 @@
 | component  | String | Required   | -        | 组件类型，取值依赖组件的实现
 | value      | String/Array/Object | Optional | -        | 组件取值，具体类型依赖validity.format 决定
 
-### 实体定义
+### 实体属性定义
 
 | 名称        | 类型        | 必填       | 默认值    | 说明
 |------------|------------|------------|----------|----------
@@ -65,14 +65,14 @@
 
 ### Events 定义
 
-| 名称         | 类型      | 必填     | 默认值        | 说明
-|-------------|----------|----------|--------------|----------
-| click       | Function | Optional | onClick      | 抛出当前组件的点击事件
-| dblClick    | Function | Optional | onDblClick   | 抛出当前组件的双击事件
-| mouseEnter  | Function | Optional | onMouseEnter | 抛出当前组件的鼠标移入事件
-| mouseLeave  | Function | Optional | onMouseLeave | 抛出当前组件的鼠标移出事件
-| change      | Function | Optional | onChange     | 抛出当前组件的值变化
-| dragEnd     | Function | Optional | onDragEnd    | 抛出当前组件的拖拽结束事件
+| 名称                  | 类型      | 必填     | 默认值        | 说明
+|----------------------|----------|----------|--------------|----------
+| clickEventName       | Function | Optional | onClick      | 抛出当前组件的点击事件
+| dblClickEventName    | Function | Optional | onDblClick   | 抛出当前组件的双击事件
+| mouseEnterEventName  | Function | Optional | onMouseEnter | 抛出当前组件的鼠标移入事件
+| mouseLeaveEventName  | Function | Optional | onMouseLeave | 抛出当前组件的鼠标移出事件
+| changeEventName      | Function | Optional | onChange     | 抛出当前组件的值变化
+| dragEndEventName     | Function | Optional | onDragEnd    | 抛出当前组件的拖拽结束事件
 
 ### Validity 定义
 

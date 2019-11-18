@@ -76,6 +76,11 @@
 
 <script>
 import utils from '../../utils/util';
+import Dialog from '../dialog/index.js'
+import Tips from '../tips/index.js'
+
+const dialog = new Dialog();
+const tips = new Tips();
 /**
  * @displayName Container
  * @groupName 表单类
@@ -194,7 +199,7 @@ export default {
          */
         layout: {
             type: String,
-            validator: function(type) {
+            validator: function (type) {
                 return ['inherit', 'row', 'row-reverse', 'column', 'column-reverse'].indexOf(type) !== -1;
             }
         },
@@ -207,7 +212,7 @@ export default {
          */
         flexJustify: {
             type: String,
-            validator: function(type) {
+            validator: function (type) {
                 return (
                     ['inherit', 'flex-start', 'center', 'flex-end', 'space-around', 'space-between'].indexOf(type) !==
                     -1
@@ -223,7 +228,7 @@ export default {
          */
         flexAlign: {
             type: String,
-            validator: function(type) {
+            validator: function (type) {
                 return ['inherit', 'flex-start', 'flex-end', 'center'].indexOf(type) !== -1;
             }
         },
@@ -236,7 +241,7 @@ export default {
          */
         flexWrap: {
             type: String,
-            validator: function(type) {
+            validator: function (type) {
                 return ['inherit', 'nowrap', 'wrap', 'wrap-reverse'].indexOf(type) !== -1;
             }
         },
@@ -333,7 +338,7 @@ export default {
     },
 
     computed: {
-        layoutClass: function() {
+        layoutClass: function () {
             let justify = this.flexJustify,
                 align = this.flexAlign,
                 direction = this.layout,

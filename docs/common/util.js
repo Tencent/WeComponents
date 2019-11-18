@@ -125,7 +125,7 @@ function formatPercentage(percent, num = 2) {
 
 function formatThousandPoint(number) {
     let num = String(number);
-    return num.replace(/(\d{1,3})(?=(\d{3})+$)/g, function($1) {
+    return num.replace(/(\d{1,3})(?=(\d{3})+$)/g, function ($1) {
         return $1 + ',';
     });
 }
@@ -225,9 +225,9 @@ function copy(value, success, error) {
     input.select();
     try {
         document.execCommand('copy');
-        tips.success(success || '复制成功');
+        tips && tips.success(success || '复制成功');
     } catch (e) {
-        tips.error(error || '复制失败');
+        tips && tips.error(error || '复制失败');
     }
 
     document.body.removeChild(input);
@@ -250,7 +250,7 @@ function number_format(number, decimals, dec_point, thousands_sep, roundtag) {
         sep = typeof thousands_sep === 'undefined' ? ',' : thousands_sep,
         dec = typeof dec_point === 'undefined' ? '.' : dec_point,
         s = '',
-        toFixedFix = function(n, prec) {
+        toFixedFix = function (n, prec) {
             var k = Math.pow(10, prec);
 
             return '' + parseFloat(Math[roundtag](parseFloat((n * k).toFixed(prec * 2))).toFixed(prec * 2)) / k;

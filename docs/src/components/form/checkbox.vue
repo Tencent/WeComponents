@@ -172,18 +172,7 @@ export default {
         this.parse('Checkbox');
     },
 
-    methods: {
-        eventHandler(event) {
-            switch (event.type) {
-                case 'myCustomEvent_1':
-                    tips.success('myCustomEvent_1');
-                    break;
-                case 'myCustomEvent_2':
-                    tips.success('myCustomEvent_2');
-                    break;
-            }
-        }
-    }
+    methods: {}
 };
 </script>
 <style>

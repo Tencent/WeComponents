@@ -579,7 +579,6 @@ export default {
 
     data() {
         return {
-            items: [], // 组件需要
             page: new WeComponents(this, pageFields)
         };
     },
@@ -602,19 +601,19 @@ export default {
         },
 
         showDialogAlert(event) {
-            dialog.alert("提示类弹窗");
+            this.page.dialog.alert("提示类弹窗");
         },
 
         showDialogConfirm(event) {
-            dialog.confirm("确认类弹窗");
+            this.page.dialog.confirm("确认类弹窗");
         },
 
         showTipsSuccess(event) {
-            tips.success("操作成功，已更新数据");
+            this.page.tips.success("操作成功，已更新数据");
         },
 
         showTipsFail(event) {
-            tips.error("失败，错误信息：xxxxx");
+            this.page.tips.error("失败，错误信息：xxxxx");
         }
 
     }

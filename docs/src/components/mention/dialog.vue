@@ -36,13 +36,9 @@ let pageFields = [
         clickEventName: 'alert'
       }
     },
-    // 在methods.eventHanlder中监听button指定的事件
-    eventHandler(event) {
-      switch (event.type) {
-        case 'alert':
-          dialog.alert('dialog.alert通常用于需要将消息明确告知用户的场景')
-          break;
-      }
+    // 在methods接收button指定的事件
+    methods() {
+      alert(){}
     }
                                 </code></pre>`
     },
@@ -69,18 +65,16 @@ let pageFields = [
         clickEventName: 'confirm'
       }
     },
-    // 在methods.eventHanlder中监听button指定的事件
-    eventHandler(event) {
-      switch (event.type) {
-        case 'confirm':
-          dialog.confirm('是否保存当前修改', confirm => {
+    // 在methods中接收button指定的事件
+    methods() {
+      confirm (event) {
+        this.page.dialog.confirm('是否保存当前修改', confirm => {
             if(confirm){
-              tips.success('已保存当前修改')
+              this.page.tips.success('已保存当前修改')
             } else {
-              tips.error('未保存当前修改')
+              this.page.tips.error('未保存当前修改')
             }
-          });
-          break;
+        });
       }
     }
                                 </code></pre>`
@@ -104,21 +98,17 @@ export default {
     },
 
     methods: {
-        eventHandler(event) {
-            switch (event.type) {
-                case 'alert':
-                    dialog.alert('dialog.alert通常用于需要将消息明确告知用户的场景');
-                    break;
-                case 'confirm':
-                    dialog.confirm('是否保存当前修改', confirm => {
-                        if (confirm) {
-                            tips.success('已保存当前修改');
-                        } else {
-                            tips.error('未保存当前修改');
-                        }
-                    });
-                    break;
-            }
+        alert() {
+            this.page.dialog.alert('dialog.alert通常用于需要将消息明确告知用户的场景');
+        },
+        confirm() {
+            this.page.dialog.confirm('是否保存当前修改', confirm => {
+                if (confirm) {
+                    this.page.tips.success('已保存当前修改');
+                } else {
+                    this.page.tips.error('未保存当前修改');
+                }
+            });
         }
     }
 };

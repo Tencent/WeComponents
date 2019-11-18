@@ -26,7 +26,7 @@
             </li>
         </ul>
 
-        <h3 id="toc_3">名称定义</h3>
+        <h3 id="toc_3">基础属性定义</h3>
 
         <table>
             <thead>
@@ -78,7 +78,7 @@
             </tbody>
         </table>
 
-        <h3 id="toc_4">实体定义</h3>
+        <h3 id="toc_4">实体属性定义</h3>
 
         <table>
             <thead>
@@ -189,6 +189,8 @@
                 <tr>
                     <td>disabled</td>
                     <td>Boolean</td>
+                    <td>否</td>
+                    <td>false</td>
                     <td>组件是否禁用编辑</td>
                 </tr>
                 <tr>
@@ -215,6 +217,8 @@
                 <tr>
                     <td>searchable</td>
                     <td>Boolean</td>
+                    <td>否</td>
+                    <td>false</td>
                     <td>是否支持对items子项搜索</td>
                 </tr>
                 <tr>
@@ -242,42 +246,42 @@
 
             <tbody>
                 <tr>
-                    <td>click</td>
+                    <td>clickEventName</td>
                     <td>Function</td>
                     <td>否</td>
                     <td>onClick</td>
                     <td>抛出当前组件的点击事件</td>
                 </tr>
                 <tr>
-                    <td>dblClick</td>
+                    <td>dblClickEventName</td>
                     <td>Function</td>
                     <td>否</td>
                     <td>onDblClick</td>
                     <td>抛出当前组件的双击事件</td>
                 </tr>
                 <tr>
-                    <td>mouseEnter</td>
+                    <td>mouseEnterEventName</td>
                     <td>Function</td>
                     <td>否</td>
                     <td>onMouseEnter</td>
                     <td>抛出当前组件的鼠标移入事件</td>
                 </tr>
                 <tr>
-                    <td>mouseLeave</td>
+                    <td>mouseLeaveEventName</td>
                     <td>Function</td>
                     <td>否</td>
                     <td>onMouseLeave</td>
                     <td>抛出当前组件的鼠标移出事件</td>
                 </tr>
                 <tr>
-                    <td>change</td>
+                    <td>changeEventName</td>
                     <td>Function</td>
                     <td>否</td>
                     <td>onChange</td>
                     <td>抛出当前组件的值变化</td>
                 </tr>
                 <tr>
-                    <td>dragEnd</td>
+                    <td>dragEndEventName</td>
                     <td>Function</td>
                     <td>否</td>
                     <td>onDragEnd</td>
@@ -395,7 +399,7 @@
             </tbody>
         </table>
 
-        <h2 id="toc_9">Event Data 定义</h2>
+        <h3 id="toc_9">Event Data 定义</h3>
         <table>
             <thead>
                 <tr>

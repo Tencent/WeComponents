@@ -42,6 +42,7 @@
                             :placeholder="placeholder"
                             :disabled="_disabled"
                             :readonly="_readonly"
+                            ref="textarea"
                         ></textarea>
                         <!-- eslint-enable -->
                         <span
@@ -92,6 +93,9 @@
 </template>
 
 <script>
+import Dialog from '../dialog/index.js'
+
+const dialog = new Dialog();
 /**
  * @displayName Textarea
  * @groupName 表单类
@@ -246,7 +250,7 @@ export default {
         format: {
             type: String,
             default: 'String',
-            validator: function(type) {
+            validator: function (type) {
                 return ['String', 'Number'].indexOf(type) !== -1;
             }
         },
@@ -411,8 +415,7 @@ export default {
          * Textarea组件双击事件
          * <event>onTextareaDblClick</event>
          *
-         * 若未自定义，则执行默认行为：修改当前Textarea组件只读属性为false
-         * 若自定义，则不执行默认行为，并抛出事件
+         * 监听并抛出双击事件
          *
          * <customParam>
          *  type{string}  事件名称;
@@ -423,7 +426,6 @@ export default {
          * @public
          */
         handleDblClick(event) {
-            // dblclick默认行为：取消readonly
             this._currentPageInstance.collectEvent({
                 type: this.dblClickEventName,
                 data: this.val,
@@ -431,10 +433,14 @@ export default {
                 nativeEvent: event
             });
         },
+
         _editable() {
             dialog.confirm('确定编辑此字段吗？', rt => {
                 if (rt) {
                     this.componentReadonly = false;
+                    if (this.$refs && this.$refs.textarea) {
+                        this.$refs.textarea.focus();
+                    }
                 }
             });
         }

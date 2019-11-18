@@ -126,6 +126,9 @@
 
 <script type="text/javascript">
 import moment from 'moment';
+import Tips from '../tips/index.js'
+
+const tips = new Tips();
 
 export default {
     props: {
@@ -522,7 +525,7 @@ export default {
          */
         currentTime: function() {
             var date = new Date();
-            
+
             this.date.setHours(date.getHours());
             this.date.setMinutes(date.getMinutes());
             this.date.setSeconds(date.getSeconds());

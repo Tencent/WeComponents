@@ -1,7 +1,11 @@
 import Util from './utils/util';
 import _ from 'lodash';
 import VPage from './main.vue';
+import Dialog from './components/dialog/index.js';
+import Tips from './components/tips/index.js';
 
+const dialog = new Dialog();
+const tips = new Tips();
 const { isObject, isArray, isNumber, isString, isDefined, getUid } = Util;
 
 class Container {
@@ -13,7 +17,8 @@ class Container {
             this.data = thisContext;
             this.items = _items;
             this.vm = thisContext;
-            this.vm.eventHandler = function eventHandler(event) { };
+            this.dialog = dialog;
+            this.tips = tips;
 
             this.vm.$options.render = function render(h) {
                 return h(VPage, {
@@ -33,24 +38,9 @@ class Container {
         }
     }
 
-    trigger(eventName, obj, params) {
-        if (obj && 'field' in obj) {
-            let field = this.getItem(obj.field.id),
-                data = params ? params : obj.field.value;
-
-            this.vm.eventHandler({
-                vm: obj,
-                item: obj.field,
-                type: eventName,
-                data: data, // @deprecated use value
-                value: data,
-                parent: field ? field.parent : undefined
-            });
-        } else {
-            !obj.type && (obj.type = eventName);
-
-            //针对table 操作里面的 button 列表的 mouseenter mouseleave 事件做的兼容
-            this.vm.eventHandler(obj);
+    trigger(eventName, params) {
+        if (this.vm[eventName]) {
+            this.vm[eventName](params);
         }
     }
 

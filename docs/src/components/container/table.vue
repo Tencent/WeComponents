@@ -533,39 +533,32 @@ export default {
     },
 
     methods: {
-        eventHandler(event) {
-            switch (event.type) {
-                case 'modifyScore':
-                    {
-                        let items = this.container.getItem('table_test').items;
+        modifyScore() {
+            let items = this.container.getItem('table_test').items;
 
-                        items.some((column, index) => {
-                            if (column.name === 'score') {
-                                items[index].value = function(value, index, row) {
-                                    return {
-                                        component: 'input',
-                                        value: value,
-                                        attributes: {
-                                            disabled: false,
-                                            size: 'small',
-                                            resetable: false
-                                        },
-                                        validity: {
-                                            format: 'Number'
-                                        }
-                                    };
-                                };
+            items.some((column, index) => {
+                if (column.name === 'score') {
+                    items[index].value = function (value, index, row) {
+                        return {
+                            component: 'input',
+                            value: value,
+                            attributes: {
+                                disabled: false,
+                                size: 'small',
+                                resetable: false
+                            },
+                            validity: {
+                                format: 'Number'
                             }
-                        });
+                        };
+                    };
+                }
+            });
 
-                        this.container.setAttribute('table_test', 'items', items);
-                    }
-                    break;
-
-                case 'buy':
-                    dialog.alert('购买成功，感谢支持');
-                    break;
-            }
+            this.container.setAttribute('table_test', 'items', items);
+        },
+        buy() {
+            this.page.dialog.alert('购买成功，感谢支持');
         }
     }
 };

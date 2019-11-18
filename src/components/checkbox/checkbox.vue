@@ -99,6 +99,9 @@
 <script>
 import Emitter from '../../mixins/emitter.js';
 import util from '../../utils/util';
+import Dialog from '../dialog/index.js'
+
+const dialog = new Dialog();
 /**
  * @displayName Checkbox
  * @groupName 表单类
@@ -229,7 +232,7 @@ export default {
         format: {
             type: String,
             default: 'String',
-            validator: function(type) {
+            validator: function (type) {
                 return ['String', 'Number'].indexOf(type) !== -1;
             }
         },

@@ -82,6 +82,11 @@
 import Emitter from '../../mixins/emitter.js';
 import util from '../../utils/util.js';
 import calendar from './originCalendar.vue';
+import Dialog from '../dialog/index.js'
+import Tips from '../tips/index.js'
+
+const dialog = new Dialog();
+const tips = new Tips();
 /**
  * @displayName Calendar
  * @groupName 表单类
@@ -239,7 +244,7 @@ export default {
          */
         format: {
             type: String,
-            validator: function(type) {
+            validator: function (type) {
                 return (
                     ['yyyy-MM', 'yyyy-MM-dd', 'yyyy-MM-dd HH', 'yyyy-MM-dd HH:mm', 'yyyy-MM-dd HH:mm:ss'].indexOf(
                         type

@@ -113,6 +113,9 @@
 <script>
 import uploadItem from './upload-item.vue';
 import util from '../../utils/util';
+import Dialog from '../dialog/index.js'
+
+const dialog = new Dialog();
 /**
  * @displayName Upload
  * @groupName 表单类
@@ -282,7 +285,7 @@ export default {
         fileType: {
             type: String,
             default: 'image',
-            validator: function(type) {
+            validator: function (type) {
                 return ['image', 'file', 'video'].indexOf(type) !== -1;
             }
         },
@@ -307,7 +310,7 @@ export default {
             type: String,
             required: true,
             default: 'String',
-            validator: function(type) {
+            validator: function (type) {
                 return (
                     [
                         'String',
@@ -329,7 +332,7 @@ export default {
         min: {
             type: Number,
             default: 0,
-            validator: function(min) {
+            validator: function (min) {
                 return min >= 0;
             }
         },
@@ -340,7 +343,7 @@ export default {
          */
         max: {
             type: Number,
-            validator: function(max) {
+            validator: function (max) {
                 return max <= Number.MAX_VALUE;
             }
         },

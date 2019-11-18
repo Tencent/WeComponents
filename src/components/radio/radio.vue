@@ -90,6 +90,9 @@
 </template>
 
 <script>
+import Dialog from '../dialog/index.js'
+
+const dialog = new Dialog();
 /**
  * @displayName Radio
  * @groupName 表单类
