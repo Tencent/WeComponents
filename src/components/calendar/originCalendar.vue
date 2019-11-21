@@ -34,8 +34,8 @@
                     </tr>
                 </thead>
                 <tbody class="date-body">
-                    <tr v-for="i in 6" :key="row+'_'+i">
-                        <td v-for="j in 7" :key="day+'_'+j"
+                    <tr v-for="i in 6" :key="'row_'+i">
+                        <td v-for="j in 7" :key="'day_'+j"
                             :class="dateArray[(i - 1) * 7 + (j - 1)] && dateArray[(i - 1)  * 7 + (j - 1)].status"
                             @click.stop="dateClick((i - 1)  * 7 + (j - 1))">
                             {{ dateArray[(i - 1)  * 7 + (j - 1)] && dateArray[(i - 1) * 7 + (j - 1)].number }}
