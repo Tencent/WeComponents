@@ -233,6 +233,10 @@ function getLayerRoute(currentRoutes, matchedRouter, layerIndex) {
 }
 </script>
 <style>
+body {
+    font-family: -apple-system-font, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Hiragino Sans GB,
+        Microsoft YaHei UI, Microsoft YaHei, Arial, sans-serif;
+}
 .mod-frame__menu-box {
     margin-top: 0;
 }
@@ -331,7 +335,7 @@ function getLayerRoute(currentRoutes, matchedRouter, layerIndex) {
 }
 .mod-header__nav-item.router-link-active {
     background-color: #f0f0f0;
-    border-bottom: 3px solid #4faa38;
+    border-bottom: 3px solid #07c160;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -734,7 +738,7 @@ select[readonly]::-ms-expand {
 }
 
 .mod-material__item:hover {
-    border-color: #21b100;
+    border-color: #07c160;
     z-index: 1;
 }
 
@@ -781,7 +785,7 @@ select[readonly]::-ms-expand {
     opacity: 0.9;
     height: 40px;
     line-height: 40px;
-    background-color: #21b100;
+    background-color: #07c160;
     text-align: center;
     font-size: 14px;
     color: #fff;
@@ -826,7 +830,6 @@ select[readonly]::-ms-expand {
 }
 .mod-frame__head {
     background-color: #fff;
-    border-top: 4px solid #44b549;
     border-bottom: 1px solid #dedfe5;
 }
 .mod-header__logo {
@@ -844,6 +847,9 @@ a:hover {
 }
 .mod-frame__submenu-link {
     padding-left: 35px;
+}
+.mod-frame__submenu-link_current {
+    color: #07c160;
 }
 .mod-header__account-logout,
 .mod-header__account-logout:hover,
