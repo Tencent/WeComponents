@@ -2,7 +2,7 @@
 
 WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声明式组件库，写完 JSON 就做好了页面，让开发变得简单。</p>
 
-[![Build Status](https://travis-ci.org/Tencent/WeComponents.svg?branch=master)](https://travis-ci.org/Tencent/WeComponents) [![Npm Version](https://img.shields.io/npm/v/@weadmin/wecomponents)](https://www.npmjs.com/package/@weadmin/wecomponents) [![License](https://img.shields.io/npm/l/%40weadmin%2Fwecomponents)](https://github.com/Tencent/WeComponents/blob/master/LICENSE)
+[![License](https://img.shields.io/npm/l/%40weadmin%2Fwecomponents)](https://github.com/Tencent/WeComponents/blob/master/LICENSE) [![Build Status](https://travis-ci.org/Tencent/WeComponents.svg?branch=master)](https://travis-ci.org/Tencent/WeComponents) [![Coverage Status](https://coveralls.io/repos/github/Tencent/WeComponents/badge.svg?branch=master)](https://coveralls.io/github/Tencent/WeComponents?branch=master) [![Npm Version](https://img.shields.io/npm/v/@weadmin/wecomponents)](https://www.npmjs.com/package/@weadmin/wecomponents)
 
 ## 特点
 
