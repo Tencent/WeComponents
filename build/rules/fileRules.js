@@ -1,4 +1,4 @@
-module.exports = function(config) {
+module.exports = function (config) {
 
     const configWebpack = config.webpack;
     const isProduction = config.env === 'production';
@@ -19,7 +19,7 @@ module.exports = function(config) {
                     options: {
                         publicPath: isProduction ? configWebpack.imgCdn : configWebpack.webserver,
                         limit: 10,
-                        name: `img/[path]${configWebpack.hashName}.[ext]`
+                        name: `img/${configWebpack.hashName}.[ext]`
                     }
                 }
             ]
