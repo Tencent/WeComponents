@@ -16,6 +16,9 @@
     "url": "git@github.com:Tencent/WeComponents.git"
   },
   "author": "WeAdmin Team",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "animate.css": "^3.7.2",
     "echarts": "^4.1.0",
