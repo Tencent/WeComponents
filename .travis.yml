@@ -3,6 +3,14 @@ language: node_js
 node_js:
   - "8"
 
+cache:
+  directories:
+    - "node_modules"
+
+branches:
+  only:
+    - master
+
 install:
   - "npm install"
 
@@ -11,5 +19,14 @@ script:
   - "npm run test"
   - "npm run docs"
   - "npm run build"
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  target-branch: gh-pages
+  local-dir: dist
+  on:
+    branch: master
 
 after_script: "npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
