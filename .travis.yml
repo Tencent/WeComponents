@@ -22,10 +22,10 @@ script:
 
 deploy:
   provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  target-branch: gh-pages
-  local-dir: dist
+  skip_cleanup: true
+  github_token: $GH_TOKEN
+  target_branch: gh-pages
+  local_dir: dist
   on:
     branch: master
 
