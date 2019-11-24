@@ -21,12 +21,17 @@ script:
   - "npm run build"
 
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
-  target_branch: gh-pages
-  local_dir: dist
-  on:
-    branch: master
+  - provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN
+    target_branch: gh-pages
+    local_dir: dist
+    on:
+      branch: master
+  - provider: npm
+    email: "damonpeng@qq.com"
+    api_key: $NPMJS_TOKEN
+    on:
+      tags: true
 
 after_script: "npm install coveralls && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
