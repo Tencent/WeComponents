@@ -347,7 +347,7 @@ export default {
             date.setDate(0);
 
             var lastMonthDays = date.getDate();
-            var i;
+            var i,index;
             for (i = 0; i < firstDay; i++) {
                 array.unshift({
                     number: lastMonthDays - i,
