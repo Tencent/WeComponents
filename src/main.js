@@ -225,6 +225,7 @@ class Container {
         let field = this._queryItem(obj, this.items);
         if (!field) return;
 
+        !item.id && (item = this._resetId(item));
         field.items.push(_.cloneDeep(item));
     }
 
@@ -241,6 +242,7 @@ class Container {
         let items = parent.items || [];
         let index = items.findIndex(item => item.id == field.id) || 0;
 
+        !item.id && (item = this._resetId(item));
         parent.items.splice(index, 0, item);
     }
 

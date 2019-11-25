@@ -513,17 +513,20 @@ export default {
          * @public
          */
         deleteContainer() {
-            this._currentPageInstance.collectEvent({
-                type: this.deleteEventName,
-                data: null,
-                target: this,
-                nativeEvent: null
-            });
             // 调用container方法，从pagefields.json中删除container
             dialog.confirm('确定要删除当前container么', confirm => {
                 if (confirm) {
                     this.id && this._currentPageInstance.container.removeItem(this.id);
                 }
+
+                this._currentPageInstance.collectEvent({
+                    type: this.deleteEventName,
+                    data: {
+                        deleted: confirm
+                    },
+                    target: this,
+                    nativeEvent: null
+                });
             });
         },
 
