@@ -1,9 +1,18 @@
 <template>
     <div
         :class="['wg-group-wraper', animated ? `animated ${animated}` : '', wraperClass ? wraperClass : '', flexItemWrap ? 'wg-group-wraper_wrap' : '', id ? id + '_chart-wraper' : '']"
-        :data-id="id"
-        :style="{ width: `${width}px`, height: `${height}px` }"
-    ></div>
+    >
+        <div
+            :class="[ (value.length === 0 && type !== 'graph') ? 'wg-chart-hide' : '']"
+            :data-id="id"
+            :style="{ width: `${width}px`, height: `${height}px` }"
+        ></div>
+        <div
+            v-if="value.length === 0 && type !== 'graph'"
+            :class="_getNoDataClass()"
+            :style="{ width: `${width * 0.75}px`, height: `${height * 0.75}px` }"
+        ></div>
+    </div>
 </template>
 
 <script>
@@ -14,7 +23,7 @@ import echarts from "echarts";
  * @groupName 图表类
  */
 export default {
-    name: "VCharts",
+    name: "VChart",
 
     props: {
         /**
@@ -87,6 +96,14 @@ export default {
          */
         wraperClass: {
             type: String
+        },
+        /**
+         * 无数据时的文案
+         * ___attributes___
+         */
+        placeholder: {
+            type: String,
+            default: '没有数据'
         },
         /**
          * 若为true，当组件所在容器采用flex布局时，当前组件强制占用一行
@@ -181,13 +198,32 @@ export default {
             document.querySelector(`[data-id='${this.id}']`)
         );
         this.chart = chart;
-        this.chart.setOption(this._formatOption());
+        if (this.value.length > 0 || this.type === 'graph') {
+            this.chart.setOption(this._formatOption());
+        }
     },
 
     watch: {
         items: {
             handler(newVal, oldVal) {
                 if (!_.isEqual(newVal, oldVal)) {
+                    !this.chart && (this.chart = echarts.init(
+                        document.querySelector(`[data-id='${this.id}']`)
+                    ));
+                    this.items = newVal;
+                    this.chart.setOption(this._formatOption());
+                }
+            },
+            deep: true
+        },
+        value: {
+            handler(newVal, oldVal) {
+                if (!_.isEqual(newVal, oldVal)) {
+                    !this.chart && (this.chart = echarts.init(
+                        document.querySelector(`[data-id='${this.id}']`)
+                    ));
+
+                    this.value = newVal;
                     this.chart.setOption(this._formatOption());
                 }
             },
@@ -199,7 +235,8 @@ export default {
         _formatOption() {
             let option = {
                 tooltip: {},
-                series: []
+                series: [],
+                color: ['#1AAD19', '#5E72CE', '#F7B42F', '#E96345', '#0CCC57']
             },
                 config = {};
 
@@ -277,16 +314,30 @@ export default {
                 });
 
                 option.dataset = {};
-                option.dataset.source = this.value;
+                this.value.length > 0 && (option.dataset.source = this.value);
 
                 // echarts单维度的配置属性与直角坐标系不同
                 if (this.type === "pie" || this.type === "ring") {
-                    config.encode = {
-                        value: xAxis,
-                        itemName: xAxis[0]
+                    option.legend = {};
+                    option.tooltip = {
+                        trigger: 'item',
                     };
+                    if (Array.isArray(this.value) && this.value.length > 0 && this.value[0]._description !== undefined) {
+                        option.tooltip.formatter = function (params) {
+                            return params.data._description;
+                        }
+                    }
                     if (this.type === "ring") {
                         config.radius = ["50%", "70%"];
+                    }
+                    // tooltip和label的配置应开放给使用者
+                    config.encode = {
+                        value: yAxis[0],
+                        itemName: xAxis[0],
+                        tooltip: ['pv']
+                    };
+                    config.label = {
+                        formatter: '{@pv}'
                     }
                 } else {
                     option.xAxis = {};
@@ -374,6 +425,18 @@ export default {
                 }
             });
             return resultIndex;
+        },
+
+        _getNoDataClass() {
+            let type = this.type,
+                defaultClass = 'wg-chart-empty',
+                resultClass = defaultClass;
+
+            if (type === 'ring' || type === 'line') {
+                resultClass = defaultClass + ` ${defaultClass}_${type}`
+            }
+
+            return resultClass;
         }
     }
 };
