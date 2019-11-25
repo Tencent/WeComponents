@@ -23,6 +23,7 @@ import echarts from "echarts";
  * @groupName 图表类
  */
 export default {
+    // 引入echarts作为底层实现，接口层面解耦
     name: "VChart",
 
     props: {
