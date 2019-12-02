@@ -5,7 +5,7 @@
             modal ? 'wg-container-modal_wraper' : '',
             animated ? `animated ${animated}` : '',
             wraperClass ? wraperClass : '', id ? id + '_container' : '']"
-        :style="{ width: width > 0 ? `${width}px` : '' }"
+        :style="{ width: (width > 0 && !modal) ? `${width}px` : '' }"
         :data-id="id"
     >
         <template v-if="!modal">
@@ -50,7 +50,7 @@
             </div>
         </template>
         <template v-else>
-            <div class="wg-container-modal">
+            <div class="wg-container-modal" :style="{ width: width > 0 ? `${width}px` : '' }">
                 <div class="wg-decoration-top" v-if="$slots.top">
                     <slot name="top"></slot>
                 </div>

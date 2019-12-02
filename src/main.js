@@ -269,6 +269,9 @@ class Container {
             let splitName = key.split('.');
             // json配置除极特殊情况不应有第三层，因此赋值时也只需支持到第二层
             if (item[splitName[0]][splitName[1]] === undefined) {
+                if (item[splitName[0]] === undefined) {
+                    item[splitName[0]] = {};
+                }
                 item[splitName[0]][splitName[1]] = value;
                 this.vm.$set(item, item[splitName[0]]);
             } else {
@@ -469,6 +472,25 @@ class Container {
             if (!isDefined(value) || value === '') {
                 return {
                     message: `${label}不能为空`,
+                    field: item
+                };
+            }
+        }
+
+        // 基于现实逻辑，calendar组件增加特殊的校验逻辑
+        if (item.component === 'calendar' && item.attributes && item.attributes.pickRange) {
+            let calendarFlag = Array.isArray(value) && value.length > 1 && value[0] && value[1];
+            if (isDefined(required) && required) {
+                if (!calendarFlag) {
+                    return {
+                        message: `${label}不能为空`,
+                        field: item
+                    };
+                }
+            }
+            if (calendarFlag && moment(value[1]).isBefore(moment(value[0]))) {
+                return {
+                    message: `${label}起始时间不应晚于结束时间`,
                     field: item
                 };
             }
