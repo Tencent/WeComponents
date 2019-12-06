@@ -81,7 +81,8 @@ export default {
                     {
                         label: '查询',
                         component: 'submit',
-                        attributes: { type: 'primary', submitEventName: 'searchTable' }
+                        attributes: { type: 'primary' },
+                        events: { submitEventName: 'searchTable' }
                     }
                 ]
             },
@@ -91,47 +92,32 @@ export default {
                 attributes: { placeholder: '暂无数据', pagination: 'default' },
                 items: [
                     {
-                        name: 'icon',
-                        label: '游戏图标',
-                        attributes: { width: 60, textAlign: 'center' },
-                        value(v, row) {
-                            return `<img src="${v}" width="28" />`;
-                        }
+                        name: "icon",
+                        label: "游戏图标",
+                        attributes: { width: 60, textAlign: "center" },
+                        // value filter function name in Vue methods
+                        valueFilterName: 'iconFilter'
                     },
-                    { name: 'name', label: '游戏名称' },
+                    { name: "name", label: "游戏名称" },
                     {
-                        name: 'size',
-                        label: '大小',
-                        attributes: { textAlign: 'right' },
-                        value(v, row) {
-                            return `${(v/1000/1000/1000).toFixed(1)} G`;
-                        }
+                        name: "size",
+                        label: "大小",
+                        attributes: { textAlign: "right" },
+                        valueFilterName: 'sizeFilter'
                     },
-                    { name: 'intro', label: '简介' },
+                    { name: "intro", label: "简介" },
                     {
-                        label: '操作',
-                        value() {
-                            return {
-                                component: 'container',
-                                items: [
-                                    {
-                                        label: '查看',
-                                        component: 'button',
-                                        attributes: {
-                                            type: 'link', clickEventName: 'checkDetails'
-                                        }
-                                    }
-                                ]
-                            };
-                        }
+                        label: "操作",
+                        name: 'option',
+                        valueFilterName: 'optionFilter'
                     }
                 ],
                 value: [
                     {
-                    icon: 'http://mmocgame.qpic.cn/wechatgame/HurH4elIxzLGX0FjtUic0kcQtloVbicTO6LVjWicWYwrIvUBSsve2KWz40jS2MFM5Zu/0',
-                    name: '王者荣耀',
-                    size: 3675556864,
-                    intro: '爽快超神，腾讯5v5英雄公平对战手游'
+                        icon: 'http://mmocgame.qpic.cn/wechatgame/HurH4elIxzLGX0FjtUic0kcQtloVbicTO6LVjWicWYwrIvUBSsve2KWz40jS2MFM5Zu/0',
+                        name: '王者荣耀',
+                        size: 3675556864,
+                        intro: '爽快超神，腾讯5v5英雄公平对战手游'
                     },
                     {
                         icon: 'https://mmocgame.qpic.cn/wechatgame/duc2TvpEgSTLicunKH0MgcMLa8jicfvBvEXiaNAIReHzQJxhsibvgbVpIKtibgV8UcMEO/0',

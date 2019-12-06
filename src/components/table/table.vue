@@ -112,14 +112,14 @@
                                             @click="toggleShowChildren(tr, tr._originIndex)"
                                         ></i>
                                         <template
-                                            v-if="typeof column.value !== 'function'"
+                                            v-if="typeof column.value !== 'function' && !column.valueFilterName"
                                         >{{ tr[column.name] }}</template>
                                         <template v-else>
                                             <template
                                                 v-if="Object.prototype.toString.call(_getTdValue(tr, index, column, _index)) !== '[object Object]'"
                                             >
                                                 <span
-                                                    v-html="_bindPageVm(column.value, tr[column.name], index, tr)"
+                                                    v-html="_bindPageVm(column, tr[column.name], index, tr)"
                                                 ></span>
                                             </template>
                                             <template v-else>
@@ -169,7 +169,7 @@
                                                         v-if="Object.prototype.toString.call(_getTdValue(childTr, childIndex, childColumn, _childIndex)) !== '[object Object]'"
                                                     >
                                                         <span
-                                                            v-html="_bindPageVm(childColumn.value, childTr[childColumn.name], childIndex, childTr)"
+                                                            v-html="_bindPageVm(childColumn, childTr[childColumn.name], childIndex, childTr)"
                                                         ></span>
                                                     </template>
                                                     <template v-else>
@@ -961,8 +961,14 @@ export default {
         },
         // 当column.value返回组件配置的Object时，获取当前td的值
         _getTdValue(row, rowIndex, column, columnIndex) {
-            let func = column.value,
-                bindFunc = func.bind(this._currentPageInstance.container.vm),
+            let func = null;
+            if (typeof column.value === 'function') {
+                func = column.value;
+            } else if (column.valueFilterName && this._currentPageInstance.container.vm[column.valueFilterName]) {
+                func = this._currentPageInstance.container.vm[column.valueFilterName];
+            }
+
+            let bindFunc = func.bind(this._currentPageInstance.container.vm),
                 value = row[column.name],
                 result = bindFunc(value, rowIndex, row),
                 _value = value;
@@ -1018,7 +1024,8 @@ export default {
         _getTableItemId() {
             return util.getUid();
         },
-        _bindPageVm(fn, value, index, tr) {
+        _bindPageVm(column, value, index, tr) {
+            let fn = typeof column.value === 'function' ? column.value : this._currentPageInstance.container.vm[column.valueFilterName];
             // 允许table的value函数中使用当前页面vm的上下文
             let bindFn = fn.bind(this._currentPageInstance.container.vm)
             return bindFn(value, index, tr)

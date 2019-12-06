@@ -20,6 +20,8 @@ let pageFields = [
                         component: "submit",
                         attributes: {
                             type: "primary",
+                        },
+                        events: {
                             clickEventName: "searchTable"
                         }
                     }
@@ -34,37 +36,20 @@ let pageFields = [
                         name: "icon",
                         label: "游戏图标",
                         attributes: { width: 60, textAlign: "center" },
-                        value(v, row) {
-                            return `<img src="${v}" width="28" />`;
-                        }
+                        valueFilterName: 'iconFilter'
                     },
                     { name: "name", label: "游戏名称" },
                     {
                         name: "size",
                         label: "大小",
                         attributes: { textAlign: "right" },
-                        value(v, row) {
-                            return `${(v / 1000 / 1000 / 1000).toFixed(1)} G`;
-                        }
+                        valueFilterName: 'sizeFilter'
                     },
                     { name: "intro", label: "简介" },
                     {
                         label: "操作",
-                        value() {
-                            return {
-                                component: "container",
-                                items: [
-                                    {
-                                        label: "查看",
-                                        component: "button",
-                                        attributes: {
-                                            type: "link",
-                                            clickEventName: "checkDetails"
-                                        }
-                                    }
-                                ]
-                            };
-                        }
+                        name: 'option',
+                        valueFilterName: 'optionFilter'
                     }
                 ],
                 value: []
@@ -98,7 +83,9 @@ let pageFields = [
                 label: "确定",
                 attributes: {
                     type: "primary",
-                    class: "wg-modal-button_submit",
+                    class: "wg-modal-button_submit"
+                },
+                events: {
                     clickEventName: "closeModal"
                 }
             }
@@ -136,11 +123,43 @@ export default {
     },
 
     methods: {
+        searchFilter(v) {
+            let prefix = 'search:'
+            if (v.indexOf(prefix) > -1) {
+                return prefix + v.slice(prefix.length)
+            } else {
+                return prefix + v;
+            }
+        },
+        iconFilter(v, rowIndex, row) {
+            return `<img src="${v}" width="28" />`;
+        },
+        sizeFilter(v, rowIndex, row) {
+            return `${(v / 1000 / 1000 / 1000).toFixed(1)} G`;
+        },
+        optionFilter(v, rowIndex, row) {
+            return {
+                component: "container",
+                items: [
+                    {
+                        label: "查看",
+                        component: "button",
+                        attributes: {
+                            type: "link"
+                        },
+                        events: {
+                            clickEventName: "checkDetails"
+                        }
+                    }
+                ]
+            };
+        },
         /**
          * 查询数据
          * @param {Object} event 事件数据对象
          */
         searchTable(event) {
+            console.log(159, event)
             let formData = event.data,
                 tableValue = this.demoTableValue;
 
