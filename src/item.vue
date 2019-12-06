@@ -91,11 +91,6 @@ function getRenderData(context = {}) {
             wraperClass: originDataProps.attributes.class,
             animated: originDataProps.attributes.animated,
             style: originDataProps.attributes.style,
-            clickEventName: originDataProps.attributes.clickEventName,
-            suffixClickEventName:
-                originDataProps.attributes.suffixClickEventName,
-            changeEventName: originDataProps.attributes.changeEventName,
-            dblClickEventName: originDataProps.attributes.dblClickEventName,
             placeholder: originDataProps.attributes.placeholder,
             resetable: originDataProps.attributes.resetable,
             help: originDataProps.attributes.help,
@@ -112,12 +107,19 @@ function getRenderData(context = {}) {
                 : isArrayValueComponent
                     ? []
                     : "",
+            valueFilterName: originDataProps.valueFilterName,
             change: originDataProps.events.change,
             items: originDataProps.items || [],
             _validityErrorMessage: originDataProps._validityErrorMessage,
             _tableData: originDataProps._tableData,
             _parentContainerAttributes:
-                originDataProps._parentContainerAttributes || {}
+                originDataProps._parentContainerAttributes || {},
+
+            clickEventName: originDataProps.events.clickEventName || originDataProps.attributes.clickEventName,
+            suffixClickEventName:
+                originDataProps.events.suffixClickEventName || originDataProps.attributes.suffixClickEventName,
+            changeEventName: originDataProps.events.changeEventName || originDataProps.attributes.changeEventName,
+            dblClickEventName: originDataProps.events.dblClickEventName || originDataProps.attributes.dblClickEventName
         }
     };
 

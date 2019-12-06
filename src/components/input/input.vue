@@ -42,7 +42,7 @@
                                 _showResetIcon ? 'wg-input-padding_right-medium' : '',
                                 _getInputSizeClass ]"
                             :placeholder="placeholder"
-                            v-model="val"
+                            :value="val"
                             @click="handleClick"
                             @input="handleInput"
                             @dblclick="handleDblClick"
@@ -147,6 +147,14 @@ export default {
          */
         value: {
             type: [String, Number]
+        },
+
+        /**
+         * 组件数据过滤函数名称，对应currentPageInstance中的Vue实例methods中的方法名
+         */
+        valueFilterName: {
+            type: String,
+            default: ''
         },
 
         /**
@@ -342,6 +350,7 @@ export default {
         },
         val(newVal, oldVal) {
             let _data;
+
             if (this.format === 'String') {
                 _data = newVal + '';
             } else if (this.format === 'Number') {
@@ -452,20 +461,21 @@ export default {
          * @public
          */
         handleInput(event) {
-            let _data = this.val;
+            let _data = this._filterValue(this.$refs.input.value);
+
             if (this.format === 'String') {
-                _data = this.val + '';
+                _data = _data + '';
             } else if (this.format === 'Number') {
-                _data = Number(this.val);
+                _data = Number(_data);
             }
 
             if (this.max) {
                 if (this.format === 'String' && this.val.length > this.max) {
                     _data = _data.slice(0, this.max);
-                    this.val = _data;
                 }
             }
 
+            this.val = _data;
             this.id && this._currentPageInstance.container.setValue(this.id, _data);
         },
 
@@ -524,6 +534,18 @@ export default {
                     }
                 }
             });
+        },
+
+        _filterValue(value) {
+            let filterFnName = this.valueFilterName,
+                result = value;
+
+            if (filterFnName && this._currentPageInstance.container.vm[filterFnName]) {
+                let filterFn = this._currentPageInstance.container.vm[filterFnName];
+                result = filterFn(value) //todo, bind this
+            }
+
+            return result;
         }
     }
 };

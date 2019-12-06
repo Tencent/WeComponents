@@ -50,12 +50,12 @@ function addPropsByComponent(component, originProps, dataProps) {
         case 'text':
             dataProps.size = attributes.size;
             dataProps.bold = attributes.bold;
-            dataProps.mouseEnterEventName = attributes.mouseEnterEventName;
-            dataProps.mouseLeaveEventName = attributes.mouseLeaveEventName;
+            dataProps.mouseEnterEventName = events.mouseEnterEventName || attributes.mouseEnterEventName;
+            dataProps.mouseLeaveEventName = events.mouseLeaveEventName || attributes.mouseLeaveEventName;
             break;
 
         case 'select':
-            dataProps.inputEventName = attributes.inputEventName;
+            dataProps.inputEventName = events.inputEventName || attributes.inputEventName;
             dataProps.searchable = attributes.searchable;
             dataProps.multiple = attributes.multiple;
             dataProps.addable = attributes.addable;
@@ -102,10 +102,10 @@ function addPropsByComponent(component, originProps, dataProps) {
                 dataProps.flexJustify = attributes.flexJustify;
                 dataProps.flexAlign = attributes.flexAlign;
                 dataProps.flexWrap = attributes.flexWrap;
-                dataProps.collapseEventName = attributes.collapseEventName;
-                dataProps.deleteEventName = attributes.deleteEventName;
-                dataProps.copyEventName = attributes.copyEventName;
-                dataProps.closeEventName = attributes.closeEventName;
+                dataProps.collapseEventName = events.collapseEventName || attributes.collapseEventName;
+                dataProps.deleteEventName = events.deleteEventName || attributes.deleteEventName;
+                dataProps.copyEventName = events.copyEventName || attributes.copyEventName;
+                dataProps.closeEventName = events.closeEventName || attributes.closeEventName;
                 dataProps.grid = attributes.grid;
                 if (component === 'modal') {
                     dataProps.modal = true;
@@ -117,7 +117,6 @@ function addPropsByComponent(component, originProps, dataProps) {
             dataProps.height = attributes.height;
             dataProps.wrap = attributes.wrap;
             dataProps.filterItems = attributes.filterItems;
-            dataProps.filterEventName = attributes.filterEventName;
             dataProps.exportData = attributes.exportData;
             dataProps.showIndex = attributes.showIndex;
             dataProps.showSelection = attributes.showSelection;
@@ -126,7 +125,8 @@ function addPropsByComponent(component, originProps, dataProps) {
             dataProps.pageTotal = attributes.pageTotal;
             dataProps.autoPaging = attributes.autoPaging;
             dataProps.pagination = attributes.pagination;
-            dataProps.paginationEventName = attributes.paginationEventName;
+            dataProps.filterEventName = events.filterEventName || attributes.filterEventName;
+            dataProps.paginationEventName = events.paginationEventName || attributes.paginationEventName;
             break;
 
         case 'calendar':

@@ -24,6 +24,7 @@ function getRenderData(config) {
             events: _config.events,
             label: _config.label,
             value: _config.value,
+            valueFilterName: _config.valueFilterName,
             decoration: _config.decoration || [],
             items: config.items || [],
             _validityErrorMessage: _config._validityErrorMessage,
