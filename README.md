@@ -1,6 +1,6 @@
 <img src="logo.png" width="400" height="100" />
 
-WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声明式组件库，写完 JSON 就做好了页面，让开发变得简单。</p>
+WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声明式组件库，写完 JSON 就做好了页面，让开发更简单。</p>
 
 [![License](https://img.shields.io/npm/l/%40weadmin%2Fwecomponents)](https://github.com/Tencent/WeComponents/blob/master/LICENSE) [![Build Status](https://travis-ci.org/Tencent/WeComponents.svg?branch=master)](https://travis-ci.org/Tencent/WeComponents) [![Coverage Status](https://coveralls.io/repos/github/Tencent/WeComponents/badge.svg?branch=master)](https://coveralls.io/github/Tencent/WeComponents?branch=master) [![Npm Version](https://img.shields.io/npm/v/@weadmin/wecomponents)](https://www.npmjs.com/package/@weadmin/wecomponents)
 
@@ -66,64 +66,65 @@ export default {
 ```javascript
 [
     {
-        component: 'container',
-        items: [
+        "component": "container",
+        "items": [
             {
-                component: 'form',
-                attributes: { layout: 'row' },
-                items: [
+                "component": "form",
+                "attributes": { "layout": "row" },
+                "items": [
                     {
-                        name: 'search',
-                        label: '搜索',
-                        component: 'input',
-                        attributes: { placeholder: '输入游戏名称进行搜索' }
+                        "name": "search",
+                        "label": "搜索",
+                        "component": "input",
+                        "attributes": { "placeholder": "输入游戏名称进行搜索" }
                     },
                     {
-                        label: '查询',
-                        component: 'submit',
-                        attributes: { type: 'primary' },
-                        events: { submitEventName: 'searchTable' }
+                        "label": "查询",
+                        "component": "submit",
+                        "attributes": { "type": "primary" },
+                        // @todo event handle function name in Vue methods
+                        "events": { "submitEventName": "searchTable" }
                     }
                 ]
             },
             {
-                id: 'list',
-                component: 'table',
-                attributes: { placeholder: '暂无数据', pagination: 'default' },
-                items: [
+                "id": "list",
+                "component": "table",
+                "attributes": { "placeholder": "暂无数据", "pagination": "default" },
+                "items": [
                     {
-                        name: "icon",
-                        label: "游戏图标",
-                        attributes: { width: 60, textAlign: "center" },
-                        // value filter function name in Vue methods
-                        valueFilterName: 'iconFilter'
+                        "name": "icon",
+                        "label": "游戏图标",
+                        "attributes": { "width": 60, "textAlign": "center" },
+                        // @todo value filter function name in Vue methods
+                        "valueFilterName": "iconFilter"
                     },
-                    { name: "name", label: "游戏名称" },
+                    { "name": "name", "label": "游戏名称" },
                     {
-                        name: "size",
-                        label: "大小",
-                        attributes: { textAlign: "right" },
-                        valueFilterName: 'sizeFilter'
+                        "name": "size",
+                        "label": "大小",
+                        "attributes": { "textAlign": "right" },
+                        "valueFilterName": "sizeFilter"
                     },
-                    { name: "intro", label: "简介" },
+                    { "name": "intro", "label": "简介" },
                     {
-                        label: "操作",
-                        name: 'option',
-                        valueFilterName: 'optionFilter'
+                        "label": "操作",
+                        "name": "option",
+                        "valueFilterName": "optionFilter"
                     }
                 ],
-                value: [
+                "value": [
                     {
-                        icon: 'http://mmocgame.qpic.cn/wechatgame/HurH4elIxzLGX0FjtUic0kcQtloVbicTO6LVjWicWYwrIvUBSsve2KWz40jS2MFM5Zu/0',
-                        name: '王者荣耀',
-                        size: 3675556864,
-                        intro: '爽快超神，腾讯5v5英雄公平对战手游'
+                        "icon": "http://mmocgame.qpic.cn/wechatgame/HurH4elIxzLGX0FjtUic0kcQtloVbicTO6LVjWicWYwrIvUBSsve2KWz40jS2MFM5Zu/0",
+                        "name": "王者荣耀",
+                        "size": 3675556864,
+                        "intro": "爽快超神，腾讯5v5英雄公平对战手游"
                     },
                     {
-                        icon: 'https://mmocgame.qpic.cn/wechatgame/duc2TvpEgSTLicunKH0MgcMLa8jicfvBvEXiaNAIReHzQJxhsibvgbVpIKtibgV8UcMEO/0',
-                        name: '和平精英',
-                        size: 3898905600,
-                        intro: '大吉大利，腾讯光子自研军事竞赛体验'
+                        "icon": "https://mmocgame.qpic.cn/wechatgame/duc2TvpEgSTLicunKH0MgcMLa8jicfvBvEXiaNAIReHzQJxhsibvgbVpIKtibgV8UcMEO/0",
+                        "name": "和平精英",
+                        "size": 3898905600,
+                        "intro": "大吉大利，腾讯光子自研军事竞赛体验"
                     }
                 ]
             }
