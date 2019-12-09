@@ -6,14 +6,14 @@ import parserMixin from '../../../mixins/parser';
 
 let pageFields = [
     {
-        value: 'Button',
+        value: 'Button/Submit',
         attributes: {
             size: 'large',
             bold: true
         }
     },
     {
-        value: 'Button组件对标HTML Button标签，常用于触发事件，如表单提交等'
+        value: 'Button组件对标HTML Button标签，常用于触发事件，如表单提交等；<br>Submit组件样式功能与Button组件基本一致，但当触发点击事件时，Submit组件会获取并校验所在Container容器的数据，若校验通过，则在点击事件中返回所在Container容器的数据，若不通过，则会在页面上显示错误提示并阻止事件'
     },
     {
         id: 'propsTable',

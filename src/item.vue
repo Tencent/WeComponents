@@ -32,6 +32,7 @@ let componentMap = new Map([
     ["textarea", VTextarea],
     ["select", VSelect],
     ["text", VText],
+    ["html", VText],
     ["upload", VUpload],
     ["tab", VTab],
     ["calendar", VCalendar],

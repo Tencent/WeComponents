@@ -48,10 +48,14 @@ function addPropsByComponent(component, originProps, dataProps) {
             break;
 
         case 'text':
+        case 'html':
             dataProps.size = attributes.size;
             dataProps.bold = attributes.bold;
             dataProps.mouseEnterEventName = events.mouseEnterEventName || attributes.mouseEnterEventName;
             dataProps.mouseLeaveEventName = events.mouseLeaveEventName || attributes.mouseLeaveEventName;
+            if (component === 'html') {
+                dataProps.enableHtml = true;
+            }
             break;
 
         case 'select':

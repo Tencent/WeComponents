@@ -32,13 +32,23 @@
                         <div class="wg-text__prefix" v-if="$slots.prefix">
                             <slot name="prefix"></slot>
                         </div>
-                        <span
-                            :class="['wg-text', id ? id + '_text' : '', fontStyleClass]"
-                            v-html="val"
-                            @click="handleClick"
-                            @mouseenter="handleMouseEnter"
-                            @mouseleave="handleMouseLeave"
-                        ></span>
+                        <template v-if="enableHtml">
+                            <span
+                                :class="['wg-text', id ? id + '_text' : '', fontStyleClass]"
+                                v-html="val"
+                                @click="handleClick"
+                                @mouseenter="handleMouseEnter"
+                                @mouseleave="handleMouseLeave"
+                            ></span>
+                        </template>
+                        <template v-else>
+                            <span
+                                :class="['wg-text', id ? id + '_text' : '', fontStyleClass]"
+                                @click="handleClick"
+                                @mouseenter="handleMouseEnter"
+                                @mouseleave="handleMouseLeave"
+                            >{{ val }}</span>
+                        </template>
                     </div>
                     <div class="wg-component-entity_bottom">
                         <div class="wg-component-help">{{help}}</div>
@@ -150,7 +160,7 @@ export default {
         size: {
             type: String,
             default: 'small',
-            validator: function(type) {
+            validator: function (type) {
                 return ['large', 'medium', 'small'].indexOf(type) !== -1;
             }
         },
@@ -191,6 +201,15 @@ export default {
         },
         extra: {
             type: Object
+        },
+
+        /**
+         * 组件是否支持富文本展示
+         * @ignore
+         */
+        enableHtml: {
+            type: Boolean,
+            default: true
         },
 
         /**

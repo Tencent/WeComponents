@@ -126,7 +126,7 @@ export default {
                             path: '/components/container/container',
                             component: Container,
                             meta: {
-                                label: 'Container'
+                                label: 'Container/Modal'
                             }
                         },
                         {
@@ -156,7 +156,7 @@ export default {
                             path: '/components/form/button',
                             component: Button,
                             meta: {
-                                label: 'Button'
+                                label: 'Button/Submit'
                             }
                         },
                         {
@@ -184,7 +184,7 @@ export default {
                             path: '/components/form/text',
                             component: Text,
                             meta: {
-                                label: 'Text'
+                                label: 'Text/Html'
                             }
                         },
                         {

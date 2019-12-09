@@ -6,14 +6,14 @@ import parserMixin from '../../../mixins/parser';
 
 let pageFields = [
     {
-        value: 'Container',
+        value: 'Container/Modal',
         attributes: {
             size: 'large',
             bold: true
         }
     },
     {
-        value: 'Container组件用于包含需要进行批量操作（表单提交、隐藏等）的多个组件，同时也可以嵌套包含自身'
+        value: 'Container组件用于包含需要进行批量操作（表单提交、隐藏等）的多个组件，同时也可以嵌套包含自身；<br>Modal组件为Container组件的弹窗版本'
     },
     {
         id: 'propsTable',

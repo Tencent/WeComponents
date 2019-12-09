@@ -6,11 +6,14 @@ import parserMixin from '../../../mixins/parser';
 
 let pageFields = [
     {
-        value: 'Text',
+        value: 'Text/Html',
         attributes: {
             size: 'large',
             bold: true
         }
+    },
+    {
+        value: 'Text组件为纯文本组件；对应的，Html组件即为富文本组件；<br>在当前版本中，出于兼容的考虑，Text实际上也支持富文本展示，但不建议使用Text展示富文本内容'
     },
     {
         id: 'propsTable',
