@@ -24,5 +24,4 @@
 
 ## 图表类
 
-@todo
 引入 [echarts](https://github.com/apache/incubator-echarts) 对接。

@@ -83,7 +83,6 @@ function getTableLines(head = [], value = []) {
 }
 
 function reset(container, isFirstRender) {
-    // @todo, 若后续业务需要，则深度遍历container所有子孙items
     if (isFirstRender) {
         return;
     }

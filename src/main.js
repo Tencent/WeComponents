@@ -580,7 +580,6 @@ class Container {
     /**
      * 给整个容器填值
      * @param {object} data
-     * @todo 暂时忽略value本身为数组的情况（upload，table）
      * @todo 遍历复制方法时间复杂度待优化
      */
     _setContainerValue(item, data) {

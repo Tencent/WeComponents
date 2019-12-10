@@ -82,7 +82,6 @@ export default {
                         "label": "查询",
                         "component": "submit",
                         "attributes": { "type": "primary" },
-                        // @todo event handle function name in Vue methods
                         "events": { "submitEventName": "searchTable" }
                     }
                 ]
@@ -96,7 +95,6 @@ export default {
                         "name": "icon",
                         "label": "游戏图标",
                         "attributes": { "width": 60, "textAlign": "center" },
-                        // @todo value filter function name in Vue methods
                         "valueFilterName": "iconFilter"
                     },
                     { "name": "name", "label": "游戏名称" },

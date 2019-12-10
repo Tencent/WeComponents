@@ -1,6 +1,5 @@
 /**
  * 后台常用错误码定义
- * @todo 生成？
  */
 
 // ~/QQMail/mmgamecenter/src/svrkit/mmgamemanagedbmq/mmgamemanagedbmqdefine.h
@@ -25,8 +24,6 @@ const message = {
     FIEL_SIZE_EMPTY: '上传文件不可为空',
     MYSQL_ERROR_1062: '此记录已存在，请重新填写'
 };
-
-// @todo 对不同返回码的处理行为
 
 // 将返回码的数字到宏变量名的反转，便于对无中文解释的情况下了解错误原因
 let nameMapping = {};
