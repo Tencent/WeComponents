@@ -2,14 +2,14 @@
     <div>
         <h1 id="toc_0">通用组件语言规范（Common Components Language Specification）</h1>
 
-        <p>通用组件语言规范 (简称CLS) 是将所有组件抽象为统一模型的一种标准描述方式，与语言、框架无关。</p>
+        <p>通用组件语言规范 (简称CLS) 是将所有组件抽象为统一模型，采用跨端的数据交换格式（如JSON、XML）对组件进行标准化描述，与平台、语言、框架无关。</p>
 
         <h2 id="toc_1">设计原则</h2>
 
         <ul>
             <li>数据驱动：UI 也是数据，以数据结构描述组件，以组件描述页面</li>
             <li>开发者友好：低门槛，学习了一种组件语言，就学会了整个组件库的使用；易理解，易记忆，易使用</li>
-            <li>语义化：符合一般人对功能的认知</li>
+            <li>语义化：符合一般人对功能的认知；合适的场景，合适的支持</li>
         </ul>
 
         <h2 id="toc_2">内容</h2>
@@ -74,6 +74,13 @@
                     <td>否</td>
                     <td>-</td>
                     <td>组件取值，具体类型依赖validity.format 决定</td>
+                </tr>
+                <tr>
+                    <td>valueFilterName</td>
+                    <td>String</td>
+                    <td>否</td>
+                    <td>-</td>
+                    <td>组件值的格式化函数名，会做局部范围的广播，需要做对应捕获并实现</td>
                 </tr>
             </tbody>
         </table>
@@ -247,45 +254,45 @@
             <tbody>
                 <tr>
                     <td>clickEventName</td>
-                    <td>Function</td>
+                    <td>String</td>
                     <td>否</td>
                     <td>onClick</td>
-                    <td>抛出当前组件的点击事件</td>
+                    <td>抛出当前组件的点击事件，局部范围广播，需要做对应捕获并实现</td>
                 </tr>
                 <tr>
                     <td>dblClickEventName</td>
-                    <td>Function</td>
+                    <td>String</td>
                     <td>否</td>
                     <td>onDblClick</td>
-                    <td>抛出当前组件的双击事件</td>
+                    <td>抛出当前组件的双击事件，局部范围广播，需要做对应捕获并实现</td>
                 </tr>
                 <tr>
                     <td>mouseEnterEventName</td>
-                    <td>Function</td>
+                    <td>String</td>
                     <td>否</td>
                     <td>onMouseEnter</td>
-                    <td>抛出当前组件的鼠标移入事件</td>
+                    <td>抛出当前组件的鼠标移入事件，局部范围广播，需要做对应捕获并实现</td>
                 </tr>
                 <tr>
                     <td>mouseLeaveEventName</td>
-                    <td>Function</td>
+                    <td>String</td>
                     <td>否</td>
                     <td>onMouseLeave</td>
-                    <td>抛出当前组件的鼠标移出事件</td>
+                    <td>抛出当前组件的鼠标移出事件，局部范围广播，需要做对应捕获并实现</td>
                 </tr>
                 <tr>
                     <td>changeEventName</td>
-                    <td>Function</td>
+                    <td>String</td>
                     <td>否</td>
                     <td>onChange</td>
-                    <td>抛出当前组件的值变化</td>
+                    <td>抛出当前组件的值变化事件，局部范围广播，需要做对应捕获并实现</td>
                 </tr>
                 <tr>
                     <td>dragEndEventName</td>
-                    <td>Function</td>
+                    <td>String</td>
                     <td>否</td>
                     <td>onDragEnd</td>
-                    <td>抛出当前组件的拖拽结束事件</td>
+                    <td>抛出当前组件的拖拽结束事件，局部范围广播，需要做对应捕获并实现</td>
                 </tr>
             </tbody>
         </table>
