@@ -1,6 +1,6 @@
 {
   "name": "@weadmin/wecomponents",
-  "version": "2.0.14",
+  "version": "2.0.15",
   "description": "An implementation of Common Component Language Specs for vue.js",
   "main": "lib/wecomponents.esm.js",
   "scripts": {
