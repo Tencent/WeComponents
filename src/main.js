@@ -548,21 +548,25 @@ class Container {
                         };
                     }
                 }
-            } else if (format === 'StringArray') {
-                if (!isArray) {
+            } else if (format === 'StringArray' || format === 'StringArrayCommas') {
+                let _value = value;
+                if (format === 'StringArrayCommas') {
+                    _value = value.split(',').filter(_item => _item !== '')
+                }
+                if (!isArray(_value)) {
                     return {
                         message: `${label}的值应为数组类型`,
                         field: item
                     };
                 }
-                // format为String时，min和max为数组长度的最小和最大值
-                if ((Array.isArray(value) && value.length < min) || !value) {
+                // min和max为数组长度的最小和最大值
+                if ((Array.isArray(_value) && _value.length < min) || !_value) {
                     return {
                         message: `${label}的文件数量需大于或等于${min}`,
                         field: item
                     };
                 }
-                if ((Array.isArray(value) && value.length > max) || !value) {
+                if ((Array.isArray(_value) && _value.length > max) || !_value) {
                     return {
                         message: `${label}的文件数量需小于或等于${max}`,
                         field: item

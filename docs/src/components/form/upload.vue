@@ -115,10 +115,10 @@ let pageFields = [
     upload.UPLOAD_BASIC,
     {
         value: `<pre><code>
-                            {
-                                component: 'upload',
-                            }
-                                                        </code></pre>`
+            {
+                component: 'upload'
+            }
+                                        </code></pre>`
     },
     {
         value: "指定value类型为StringArray",
@@ -321,6 +321,12 @@ export default {
         // 高亮代码
         codes.forEach(code => hljs.highlightBlock(code));
         this.parse('Upload');
+    },
+
+    methods: {
+        ttt(e) {
+            console.log(333, e)
+        }
     }
 };
 </script>
