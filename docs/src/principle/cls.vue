@@ -360,28 +360,68 @@
 
             <tbody>
                 <tr>
-                    <td>getValue(name)</td>
-                    <td>获取组件的value取值，并结合validity的format字段，返回对应数据类型的value</td>
+                    <td>getComponent(id)</td>
+                    <td>获取组件和其完整的配置</td>
                 </tr>
                 <tr>
-                    <td>setValue(name, value)</td>
-                    <td>设置组件的value取值，value入参需结合validity的format字段，传入对应的数据类型</td>
+                    <td>setComponent(id, componentConfig)</td>
+                    <td>设置组件的全部属性</td>
                 </tr>
                 <tr>
-                    <td>getAttribute(name)</td>
+                    <td>appendComponent(parentId, componentConfig)</td>
+                    <td>追加组件</td>
+                </tr>
+                <tr>
+                    <td>insertBeforeComponent(beforeComponentId, componentConfig)</td>
+                    <td>在beforeComponentId前插入新组件</td>
+                </tr>
+                <tr>
+                    <td>removeComponent(id)</td>
+                    <td>删除组件</td>
+                </tr>
+                <tr>
+                    <td>getValue(id)</td>
+                    <td>获取组件的value取值，并结合validity的format字段，返回对应数据类型的value；如果是容器，则返回子节点所有的值</td>
+                </tr>
+                <tr>
+                    <td>setValue(id, value)</td>
+                    <td>设置组件的value取值，value入参需结合validity的format字段，传入对应的数据类型；如果是容器，则可按照name对应设置所有子节点的值</td>
+                </tr>
+                <tr>
+                    <td>getAttributes(id)</td>
                     <td>获取组件属性</td>
                 </tr>
                 <tr>
-                    <td>setAttribute(name, value)</td>
+                    <td>setAttributes(id, values)</td>
                     <td>设置组件属性</td>
                 </tr>
                 <tr>
-                    <td>getAttributes(name)</td>
-                    <td>获取组件属性</td>
+                    <td>getEvents(id)</td>
+                    <td>获取事件名称</td>
                 </tr>
                 <tr>
-                    <td>setAttributes(name, values)</td>
-                    <td>设置组件属性</td>
+                    <td>setEvents(id, values)</td>
+                    <td>设置事件名称</td>
+                </tr>
+                <tr>
+                    <td>trigger(id, eventName, extentData)</td>
+                    <td>触发指定组件上的对应事件</td>
+                </tr>
+                <tr>
+                    <td>getItems(id)</td>
+                    <td>获取子层级</td>
+                </tr>
+                <tr>
+                    <td>setItems(id, values)</td>
+                    <td>设置子层级</td>
+                </tr>
+                <tr>
+                    <td>getValidity(id)</td>
+                    <td>获取有效性验证规则</td>
+                </tr>
+                <tr>
+                    <td>setValidity(id, values)</td>
+                    <td>设置有效性验证规则</td>
                 </tr>
                 <tr>
                     <td>show(id)</td>
@@ -389,24 +429,22 @@
                 </tr>
                 <tr>
                     <td>hide(id)</td>
-                    <td>隐藏制定组件</td>
+                    <td>隐藏指定组件</td>
                 </tr>
                 <tr>
-                    <td>getItem(id)</td>
-                    <td>获取组件和其完整的配置</td>
+                    <td>enable(id)</td>
+                    <td>启用指定组件，如form场景</td>
                 </tr>
                 <tr>
-                    <td>removeItem(id)</td>
-                    <td>删除组件</td>
-                </tr>
-                <tr>
-                    <td>trigger(eventData)</td>
-                    <td>触发对应事件</td>
+                    <td>disable(id)</td>
+                    <td>禁用指定组件，如form场景</td>
                 </tr>
             </tbody>
         </table>
 
-        <h3 id="toc_9">Event Data 定义</h3>
+        <h2 id="toc_9">传递数据定义</h2>
+
+        <h3 id="toc_10">Event Data 定义</h3>
         <table>
             <thead>
                 <tr>
@@ -457,7 +495,7 @@
             </tbody>
         </table>
 
-        <h2 id="toc_10">实例</h2>
+        <h2 id="toc_11">实例</h2>
         <p>
             <a href="https://github.com/Tencent/WeComponents">WeComponents</a> 是基于 CLS 在Vue.js的一个实现。
         </p>
