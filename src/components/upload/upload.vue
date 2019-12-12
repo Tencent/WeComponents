@@ -485,7 +485,7 @@ export default {
                         });
                     }
             }
-            console.log('upload val', res);
+
             if (this.max) {
                 res = res.slice(0, this.max);
             }

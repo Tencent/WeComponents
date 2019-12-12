@@ -412,6 +412,7 @@ export default {
             } else {
                 value = date;
             }
+            this.val = value;
             this.id && this._currentPageInstance.container.setValue(this.id, value);
         },
         _editable() {

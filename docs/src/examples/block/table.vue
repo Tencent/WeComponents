@@ -159,7 +159,6 @@ export default {
          * @param {Object} event 事件数据对象
          */
         searchTable(event) {
-            console.log(159, event)
             let formData = event.data,
                 tableValue = this.demoTableValue;
 

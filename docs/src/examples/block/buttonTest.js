@@ -22,9 +22,7 @@ class buttonBlock extends Basic {
         super.container.setAttribute('button', 'label', 'changed');
     }
 
-    buttonClickHandler(event) {
-        console.log('button click: ', event);
-    }
+    buttonClickHandler(event) { }
 }
 
 export default buttonBlock;

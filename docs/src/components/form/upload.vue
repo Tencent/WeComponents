@@ -323,11 +323,7 @@ export default {
         this.parse('Upload');
     },
 
-    methods: {
-        ttt(e) {
-            console.log(333, e)
-        }
-    }
+    methods: {}
 };
 </script>
 <style>
