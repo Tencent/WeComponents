@@ -86,6 +86,8 @@ function addPropsByComponent(component, originProps, dataProps) {
             dataProps.size = validity.size;
             dataProps.accept = validity.accept;
             dataProps.upload = events.upload;
+            dataProps.finishEventName = events.finishEventName || attributes.finishEventName;
+            dataProps.uploadEventName = events.uploadEventName || attributes.uploadEventName;
             break;
 
         case 'input':

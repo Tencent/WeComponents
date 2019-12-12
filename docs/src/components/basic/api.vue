@@ -119,7 +119,7 @@ let pageFields = [
             },
             {
                 name: 'setValue',
-                function: '设置组件value属性的值',
+                function: '设置组件value属性的值，若为容器组件，则会自动解析数据结构，以name为维度依次对容器组件内部的各个组件进行赋值',
                 param: 'id(String): 组件id; value(Any): 组件value属性的新值'
             },
             {

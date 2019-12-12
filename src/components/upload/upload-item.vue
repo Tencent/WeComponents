@@ -139,6 +139,12 @@ export default {
         clickEventName: {
             type: String
         },
+        finishEventName: {
+            type: String
+        },
+        uploadEventName: {
+            type: String
+        },
         width: {
             type: Number
         },
@@ -154,7 +160,7 @@ export default {
         fileType: {
             type: String,
             default: 'image',
-            validator: function(type) {
+            validator: function (type) {
                 return ['image', 'file', 'video'].indexOf(type) !== -1;
             }
         }
@@ -179,9 +185,9 @@ export default {
     computed: {
         _options() {
             let editOption = {
-                    label: '编辑',
-                    type: '_onUploadEdit'
-                },
+                label: '编辑',
+                type: '_onUploadEdit'
+            },
                 deleteOption = {
                     label: '删除',
                     type: '_onUploadDelete'
@@ -284,10 +290,36 @@ export default {
 
                     self.isLoading = true;
 
-                    if (self.upload) {
+                    if (self.uploadEventName) {
+                        // 优先支持静态配置
+                        let vm = ((this._currentPageInstance || {}).container || {}).vm,
+                            customUpload = null;
+
+                        if (Object.prototype.toString.call(vm) === "[object Object]") {
+                            customUpload = vm[self.uploadEventName];
+                        }
+
+                        if (typeof customUpload === 'function') {
+                            customUpload = customUpload.bind(this._currentPageInstance.container.vm)
+                        }
+
                         let _reader = new FileReader();
                         _reader.readAsDataURL(currentFile);
-                        _reader.onload = function(e) {
+                        _reader.onload = function (e) {
+                            customUpload({
+                                file: currentFile,
+                                fileName: currentFile.name,
+                                fileType: currentFile.type,
+                                size: currentFile.size / 1024,
+                                buffer: e.currentTarget.result,
+                                container: self._currentPageInstance.container
+                            });
+                            self.isLoading = false;
+                        }
+                    } else if (self.upload) {
+                        let _reader = new FileReader();
+                        _reader.readAsDataURL(currentFile);
+                        _reader.onload = function (e) {
                             Promise.resolve(
                                 self.upload({
                                     file: currentFile,
@@ -299,6 +331,8 @@ export default {
                                 })
                             ).then(res => {
                                 self.isLoading = false;
+                            }).catch(e => {
+                                self.isLoading = false;
                             });
                         };
                     }
@@ -306,7 +340,7 @@ export default {
                 // 返回上传过程信息
                 Promise.all(promiseList).then(res => {
                     this._currentPageInstance.collectEvent({
-                        type: 'uploadFinish',
+                        type: this.finishEventName,
                         data: res,
                         target: this,
                         nativeEvent: null
@@ -359,7 +393,7 @@ export default {
                     video.style.display = 'none';
                     document.body.appendChild(video);
 
-                    video.addEventListener('loadedmetadata', function(e) {
+                    video.addEventListener('loadedmetadata', function (e) {
                         let width = video.videoWidth || video.width,
                             height = video.videoHeight || video.height;
 

@@ -37,6 +37,8 @@
                             :isAdd="true"
                             :upload="upload"
                             :clickEventName="clickEventName"
+                            :finishEventName="finishEventName"
+                            :uploadEventName="uploadEventName"
                             :multiple="multiple"
                             :fileType="fileType"
                             :width="width"
@@ -61,6 +63,8 @@
                                     :upload="upload"
                                     :fileType="fileType"
                                     :clickEventName="clickEventName"
+                                    :finishEventName="finishEventName"
+                                    :uploadEventName="uploadEventName"
                                     :width="width"
                                     :height="height"
                                     :size="size"
@@ -222,6 +226,24 @@ export default {
         changeEventName: {
             type: String,
             default: 'onUploadChange'
+        },
+
+        /**
+         * 上传完成事件名称，无论上传成功还是失败，都会触发该事件
+         * 为兼容之前版本，默认事件名称不包含on
+         * ___attributes___
+         */
+        finishEventName: {
+            type: String,
+            default: "uploadFinish"
+        },
+
+        /**
+         * 自定义上传事件名称，若设置，则可在指向的方法中自定义上传逻辑
+         * ___attributes___
+         */
+        uploadEventName: {
+            type: String
         },
 
         /**
