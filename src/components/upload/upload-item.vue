@@ -163,6 +163,9 @@ export default {
             validator: function (type) {
                 return ['image', 'file', 'video'].indexOf(type) !== -1;
             }
+        },
+        accept: {
+            type: Array
         }
     },
     inject: {
@@ -248,19 +251,16 @@ export default {
                     let currentFile = files[i],
                         currentFileName = currentFile.name,
                         currentFileSize = currentFile.size,
-                        currentFileType = self._checkFileType(currentFileName);
+                        fileTypeCheckResult = self._checkFileType(self.accept, currentFileName);
 
-                    // 文件格式检测
-                    if (Array.isArray(self.accept) && self.accept.length > 0) {
-                        if (!self._typeChecker(self.accept, currentFileName)) {
-                            promiseList.push(
-                                Promise.resolve({
-                                    errmsg: `文件格式不符合要求，当前格式：${res && res[1] ? res[1] : '未知'}`,
-                                    filename: currentFileName
-                                })
-                            );
-                            continue;
-                        }
+                    if (!fileTypeCheckResult) {
+                        promiseList.push(
+                            Promise.resolve({
+                                errmsg: '文件格式不符合要求',
+                                filename: currentFileName
+                            })
+                        );
+                        continue;
                     }
 
                     // 文件大小检测
@@ -276,7 +276,7 @@ export default {
                     }
 
                     // 文件宽高检测
-                    let checkDimensionResult = await self._checkFileDimension(currentFile, currentFileType);
+                    let checkDimensionResult = await self._checkFileDimension(currentFile, self.fileType);
 
                     if (!checkDimensionResult.result) {
                         promiseList.push(
@@ -419,18 +419,33 @@ export default {
                 result: true
             };
         },
-        _checkFileType(fileName) {
-            let videoFormat = ['mp4', 'avi', 'mpeg', 'mpg', 'dat', '3gp'],
-                imgFormat = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'tga', 'svg', 'psd', 'hdri'],
-                fileType = 'file';
+        _checkFileType(accept, fileName) {
+            // 若设置了accept，则判断accept与文件后缀是否匹配；否则，判断文件后缀与fileType是否一致
+            if (Array.isArray(accept) && accept.length > 0) {
+                return this._typeChecker(accept, fileName)
+            } else {
+                let videoFormat = ["mp4", "avi", "mpeg", "mpg", "dat", "3gp"],
+                    imgFormat = [
+                        "jpg",
+                        "jpeg",
+                        "png",
+                        "webp",
+                        "gif",
+                        "tga",
+                        "svg",
+                        "psd",
+                        "hdri"
+                    ],
+                    fileType = "file";
 
-            if (this._typeChecker(videoFormat, fileName)) {
-                fileType = 'video';
-            } else if (this._typeChecker(imgFormat, fileName)) {
-                fileType = 'image';
+                if (this._typeChecker(videoFormat, fileName)) {
+                    fileType = "video";
+                } else if (this._typeChecker(imgFormat, fileName)) {
+                    fileType = "image";
+                }
+
+                return fileType === this.fileType;
             }
-
-            return fileType;
         },
         _typeChecker(array, name) {
             let checker = array.join('|'),

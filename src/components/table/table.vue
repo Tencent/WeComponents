@@ -47,7 +47,7 @@
                             <th
                                 v-if="!(column.attributes && column.attributes.hide)"
                                 :key="index"
-                                :class="['wg-table-th wg-table-cell', wrap ? '' : 'wg-table-td_no-wrap', getItemSortClass(column._sort), getColumnDirectionClass((column.attributes || {}).textAlign, (column.validity || {}).format)]"
+                                :class="['wg-table-th wg-table-cell', wrap ? 'wg-table-td_wrap' : 'wg-table-td_no-wrap', getItemSortClass(column._sort), getColumnDirectionClass((column.attributes || {}).textAlign, (column.validity || {}).format)]"
                                 :style="{ width: (column.attributes && column.attributes.width) ? `${column.attributes.width}px` : '' }"
                             >
                                 <template
@@ -103,7 +103,7 @@
                                 <template v-for="(column, _index) in filterColumns">
                                     <td
                                         v-if="!(column.attributes && column.attributes.hide)"
-                                        :class="['wg-table-td wg-table-cell', wrap ? '' : 'wg-table-td_no-wrap', getColumnDirectionClass((column.attributes || {}).textAlign, (column.validity || {}).format)]"
+                                        :class="['wg-table-td wg-table-cell', wrap ? 'wg-table-td_wrap' : 'wg-table-td_no-wrap', getColumnDirectionClass((column.attributes || {}).textAlign, (column.validity || {}).format)]"
                                         :key="'td' + _index"
                                     >
                                         <i
@@ -158,7 +158,7 @@
                                         >
                                             <td
                                                 v-if="!(childColumn.attributes && childColumn.attributes.hide)"
-                                                :class="['wg-table-th wg-table-cell', wrap ? '' : 'wg-table-td_no-wrap', getColumnDirectionClass((childColumn.attributes || {}).textAlign, (childColumn.validity || {}).format)]"
+                                                :class="['wg-table-th wg-table-cell', wrap ? 'wg-table-td_wrap' : 'wg-table-td_no-wrap', getColumnDirectionClass((childColumn.attributes || {}).textAlign, (childColumn.validity || {}).format)]"
                                                 :key="'child_td_' + _childIndex"
                                             >
                                                 <template

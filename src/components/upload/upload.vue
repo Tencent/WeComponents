@@ -44,6 +44,7 @@
                             :width="width"
                             :height="height"
                             :size="size"
+                            :accept="accept"
                             @add="handleAddNewFile"
                         />
                         <template v-if="val.length > 0">
@@ -68,6 +69,7 @@
                                     :width="width"
                                     :height="height"
                                     :size="size"
+                                    :accept="accept"
                                     @modify="handleModifyFile($event, item, index)"
                                     @optionClick="handleOptionClick($event, item, index)"
                                 />

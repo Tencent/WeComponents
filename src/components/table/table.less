@@ -87,8 +87,6 @@
                 }
             }
             .wg-table-cell {
-                word-break: normal;
-                word-wrap: normal;
                 padding: 0.3rem 0.65rem;
             }
             .wg-table-cell_horizontal-center {
@@ -117,6 +115,11 @@
         }
         .wg-table-td_no-wrap {
             white-space: nowrap;
+            word-break: keep-all;
+        }
+        .wg-table-td_wrap {
+            white-space: normal;
+            word-break: normal;
         }
 }
 .wg-table-label_wraper {

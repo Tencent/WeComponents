@@ -131,7 +131,7 @@ export default {
 
                 [propsTableValue, eventsTableValue, methodsTableValue, slotsTableValue].forEach((tableValue, index) => {
                     if (tableValue.length > 0) {
-                        this.page.setAttributes(tables[index], {
+                        this.page.mergeAttributes(tables[index], {
                             attributes: {
                                 hide: false
                             },
