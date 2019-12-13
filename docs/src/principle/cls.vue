@@ -313,7 +313,7 @@
             <tbody>
                 <tr>
                     <td>required</td>
-                    <td>String</td>
+                    <td>Boolean</td>
                     <td>否</td>
                     <td>false</td>
                     <td>组件值是否必填</td>
