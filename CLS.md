@@ -78,7 +78,7 @@
 
 | 名称         | 类型      | 必填     | 默认值    | 说明
 |-------------|----------|----------|----------|----------
-| required    | String   | Optional | false    | 组件值是否必填
+| required    | Boolean  | Optional | false    | 组件值是否必填
 | format      | String   | Optional | -        | 组件值的数据类型，包含String/Number/Boolean/StringArray/StringArrayCommas *
 | min         | Number   | Optional | -        | 最小值/最小长度
 | max         | Number   | Optional | -        | 最大值/最大长度
