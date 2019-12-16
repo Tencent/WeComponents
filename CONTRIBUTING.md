@@ -39,18 +39,10 @@ U chart 修改纬度描述
 TYPE 只允许使用下面的标识：
 
 ```
-* A: 新增功能(Add Feature)
-* U: 更新功能(Update)
-* F: 修复bug(Fix)
-* D: 废弃功能(Deprecated)
-```
-
-
-* scope是变更范围的描述，为可选项，允许下面2个标识：
-
-```
-* 全局: 修改的内容会影响到项目全局
-* 变更模块名: 若修改的内容仅在部分模块内，则指明变更的模块
+A: 新增功能(Add Feature)
+U: 更新功能(Update)
+F: 修复bug(Fix)
+D: 废弃功能(Deprecated)
 ```
 
 
