@@ -6,7 +6,7 @@ WeComponents 是一个基于通用组件语言规范 (CLS) 实现的 Vue.js 声�
 
 ## 特点
 
-设计思想上，以实现通用组件语言规范 CLS 为核心，即“将所有组件抽象为统一模型”，详见[通用组件语言规范(CLS)](CLS.md)。
+设计思想上，以实现通用组件语言规范 CLS 为核心，即“将所有组件抽象为统一模型”，详见[通用组件语言规范](https://tencent.github.io/WeComponents/#/doc/principle/cls)。
 
 **数据驱动**
 * UI 也是数据
