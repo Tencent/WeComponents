@@ -59,7 +59,7 @@ class Container {
             res = item[_attr[0]][_attr[1]];
         } else {
             // 获取表格value时，若表格包含嵌套组件，则返回对应组件的值
-            if (item.component === 'table') {
+            if (attr === 'value' && item.component === 'table') {
                 let tableVm = this._getVmById(this.vm, item.id);
                 tableVm && (res = tableVm._getTableValue());
             } else {
@@ -397,6 +397,11 @@ class Container {
     _formatValue(item = {}) {
         let name = item.name,
             value = item.value;
+
+        if (item.component === 'table') {
+            let vm = this._getVmById(this.vm, item.id);
+            value = vm._getTableValue();
+        }
 
         return name && typeof name === 'string'
             ? {
