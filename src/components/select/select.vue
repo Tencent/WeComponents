@@ -508,11 +508,13 @@ export default {
                 labelIcon: ''
             };
 
-            this.items.some(item => {
-                if (item.value === this.val) {
-                    _item = item;
-                }
-            });
+            if (!this.multiple) {
+                this.items.some(item => {
+                    if (item.value === this.val) {
+                        _item = item;
+                    }
+                });
+            }
 
             return _item;
         }
