@@ -6,7 +6,7 @@ import Tips from './components/tips/index.js';
 
 const dialog = new Dialog();
 const tips = new Tips();
-const { isObject, isArray, isNumber, isString, isDefined, getUid } = Util;
+const { isObject, isArray, isNumber, isString, isDefined } = Util;
 
 class Container {
     constructor(thisContext, items) {
@@ -225,7 +225,7 @@ class Container {
         let field = this._queryItem(obj, this.items);
         if (!field) return;
 
-        !item.id && (item = this._resetId(item));
+        !item.id && (item.id = this._getUid());
         field.items.push(_.cloneDeep(item));
     }
 
@@ -242,7 +242,7 @@ class Container {
         let items = parent.items || [];
         let index = items.findIndex(item => item.id == field.id) || 0;
 
-        !item.id && (item = this._resetId(item));
+        !item.id && (item.id = this._getUid());
         parent.items.splice(index, 0, item);
     }
 
@@ -321,10 +321,10 @@ class Container {
 
     _resetId(field) {
         if (field.component) {
-            // text不清空值
-            let keepValueComponent = ['grid', 'text'];
+            // text/html不清空值
+            let keepValueComponent = ['text', 'html'];
 
-            field.id = field.component + '_' + getUid();
+            field.id = this._getUid();
 
             // 复制时清空值
             if (keepValueComponent.indexOf(field.component) === -1) {
