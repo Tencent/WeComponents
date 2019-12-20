@@ -209,7 +209,7 @@ export default {
          */
         enableHtml: {
             type: Boolean,
-            default: true
+            default: false
         },
 
         /**
