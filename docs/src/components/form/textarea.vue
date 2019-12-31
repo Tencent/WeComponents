@@ -113,6 +113,7 @@ let pageFields = [
     },
     textarea.TEXTAREA_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: 'textarea',
@@ -131,6 +132,7 @@ let pageFields = [
     },
     textarea.TEXTAREA_WITH_LABEL,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "textarea",
@@ -150,6 +152,7 @@ let pageFields = [
     },
     textarea.TEXTAREA_WITH_MAXLENGTH,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "textarea",

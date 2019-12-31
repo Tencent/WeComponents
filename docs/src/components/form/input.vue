@@ -113,6 +113,7 @@ let pageFields = [
     },
     input.INPUT_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: 'input'
@@ -131,6 +132,7 @@ let pageFields = [
         label: '标题'
     },
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "input",
@@ -147,6 +149,7 @@ let pageFields = [
     },
     input.INPUT_WITH_REQUIRED,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "input",
@@ -165,6 +168,7 @@ let pageFields = [
     },
     input.INPUT_WITH_MAXLENGTH,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "input",

@@ -156,6 +156,7 @@ let pageFields = [
     },
     processor.PROCESSOR_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "processor",
@@ -194,6 +195,7 @@ let pageFields = [
     },
     processor.PROCESSOR_WITH_LABEL,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "processor",
@@ -236,6 +238,7 @@ let pageFields = [
     },
     processor.PROCESSOR_WITH_DISABLED,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "select",

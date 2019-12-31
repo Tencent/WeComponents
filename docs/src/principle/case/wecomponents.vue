@@ -6,7 +6,7 @@ import parserMixin from '../../../mixins/parser';
 
 let pageFields = [
     {
-        components: 'text',
+        component: 'html',
         value: 'WeComponents',
         attributes: {
             size: 'large',
@@ -14,7 +14,7 @@ let pageFields = [
         }
     },
     {
-        components: 'text',
+        component: 'html',
         value: `<a href="https://github.com/Tencent/WeComponents">WeComponents</a>
                 基于通用组件语言规范 (CLS) 实现的 Vue.js 声明式组件库`
     }

@@ -18,6 +18,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     npm install --save @weadmin/wecomponents;
 </code></pre>`
@@ -30,6 +31,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     import WeComponents from "@weadmin/wecomponents";
 </code></pre>`
@@ -42,6 +44,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     let pageFields = [
         {
@@ -59,6 +62,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     export default {
         data(){
@@ -77,6 +81,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     import WeComponents from "@weadmin/wecomponents";
 

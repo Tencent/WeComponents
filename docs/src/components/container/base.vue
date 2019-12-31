@@ -113,6 +113,7 @@ let pageFields = [
     },
     container.CONTAINER_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: 'container',
@@ -138,6 +139,7 @@ let pageFields = [
     },
     container.CONTAINER_WITH_LABEL,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "container",
@@ -164,6 +166,7 @@ let pageFields = [
     },
     container.CONTAINER_WITH_OPTION,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "container",
@@ -196,6 +199,7 @@ let pageFields = [
     },
     container.CONTAINER_WITH_LAYOUT,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "container",

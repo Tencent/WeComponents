@@ -116,6 +116,7 @@ let pageFields = [
     },
     text.TEXT_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
     {
         label: "Text基本用法",
@@ -132,9 +133,10 @@ let pageFields = [
     },
     text.TEXT_WITH_SIZE,
     {
+        component: 'html',
         value: `<pre><code>
     {
-        component: 'text',
+        component: 'html',
         value: 0,
         attributes: {
             size: "large",

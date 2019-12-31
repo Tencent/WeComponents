@@ -41,6 +41,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "input",
@@ -76,6 +77,7 @@ let pageFields = [
         ]
     },
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "input",
@@ -141,6 +143,7 @@ let pageFields = [
         ]
     },
     {
+        component: 'html',
         value: `<pre><code>
         {
                 component: "input",

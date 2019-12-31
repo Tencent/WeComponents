@@ -156,6 +156,7 @@ let pageFields = [
     },
     radio.RADIO_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "radio",
@@ -182,6 +183,7 @@ let pageFields = [
     },
     radio.RADIO_WITH_LABEL,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "radio",
@@ -212,6 +214,7 @@ let pageFields = [
     },
     radio.RADIO_WITH_SINGLE_DISABLED,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "select",
@@ -242,6 +245,7 @@ let pageFields = [
     },
     radio.RADIO_WIDTH_DISABLED,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "select",

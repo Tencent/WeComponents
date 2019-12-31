@@ -28,6 +28,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     {
       component: "button",
@@ -57,6 +58,7 @@ let pageFields = [
         }
     },
     {
+        component: 'html',
         value: `<pre><code>
     {
       component: "button",

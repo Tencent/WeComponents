@@ -187,6 +187,7 @@ let pageFields = [
     },
     table.TABLE_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "table",
@@ -253,6 +254,7 @@ let pageFields = [
     },
     table.TABLE_WITH_ROW_CONFIG,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "table",
@@ -339,6 +341,7 @@ let pageFields = [
     },
     table.TABLE_WITH_COLUMN_CONFIG,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "table",
@@ -413,6 +416,7 @@ let pageFields = [
     },
     table.TALBE_WITH_COMPONENTS,
     {
+        component: 'html',
         value: `<pre><code>
     {
         component: "table",

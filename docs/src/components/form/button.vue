@@ -113,6 +113,7 @@ let pageFields = [
     },
     button.BUTTON_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "button"
@@ -128,6 +129,7 @@ let pageFields = [
     },
     button.BUTTON_WITH_LABEL,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "button",
@@ -144,6 +146,7 @@ let pageFields = [
     },
     button.BUTTON_WITH_TYPE,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "button",
@@ -162,6 +165,7 @@ let pageFields = [
     },
     button.BUTTON_LOADING,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "button",
@@ -180,6 +184,7 @@ let pageFields = [
     },
     button.BUTTON_WITH_THROTTLE,
     {
+        component: 'html',
         value: `<pre><code>
         {
             component: "button",

@@ -114,6 +114,7 @@ let pageFields = [
     },
     upload.UPLOAD_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload'
@@ -129,6 +130,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_STRING_ARRAY_VALUE,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -151,6 +153,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_STRING_ARRAY_COMMAS_VALUE,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -171,6 +174,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_CUSTOM_OPTION,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -207,6 +211,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_MULTIPLE,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -228,6 +233,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_CUSTOM_UPLOAD,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -253,6 +259,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_FILETYPE,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -271,6 +278,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_BASIC_VALIDITY,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',
@@ -292,6 +300,7 @@ let pageFields = [
     },
     upload.UPLOAD_WITH_FILE_COUNT_VALIDITY,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: 'upload',

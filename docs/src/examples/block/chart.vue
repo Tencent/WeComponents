@@ -3,7 +3,7 @@ import WeComponents from "../../../../src/"; // 引入组件库
 
 let pageFields = [
     {
-        component: "text",
+        component: 'html',
         value: "Table",
         attributes: {
             size: 'large',
@@ -47,7 +47,7 @@ let pageFields = [
         ]
     },
     {
-        component: "text",
+        component: 'html',
         value: "Ring",
         attributes: {
             size: 'large',
@@ -86,7 +86,7 @@ let pageFields = [
         ]
     },
     {
-        component: "text",
+        component: 'html',
         value: "Line",
         attributes: {
             size: 'large',
@@ -125,7 +125,7 @@ let pageFields = [
         ]
     },
     {
-        component: "text",
+        component: 'html',
         value: "Bar",
         attributes: {
             size: 'large',

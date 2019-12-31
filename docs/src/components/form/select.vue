@@ -168,6 +168,7 @@ let pageFields = [
     },
     select.SELECT_BASIC,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "select",
@@ -206,6 +207,7 @@ let pageFields = [
     },
     select.SELECT_WITH_CUSTOM_EVENT,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "select",
@@ -251,6 +253,7 @@ let pageFields = [
     },
     select.SELECT_WITH_SINGLE_DISABLED,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "select",
@@ -294,6 +297,7 @@ let pageFields = [
     },
     select.SELECT_WITH_MORE_TYPE,
     {
+        component: 'html',
         value: `<pre><code>
             {
                 component: "select",
