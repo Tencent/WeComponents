@@ -16,34 +16,9 @@ import VCalendar from "./components/calendar/calendar.vue";
 import VChart from "./components/chart/chart.vue";
 
 import util from "./utils/util.js";
+import componentMap from './utils/componentMap.js';
 
 // 在vue底层会将组件配置Object转化成构造函数，因此每次render的vnode都是新的实例
-let componentMap = new Map([
-    ["input", VInput],
-    ["button", VButton],
-    ["submit", VButton],
-    ["container", VContainer],
-    ["form", VContainer],
-    ["modal", VContainer],
-    ["table", VTable],
-    ["radio", VRadio],
-    ["checkbox", VCheckbox],
-    ["processor", VProcessor],
-    ["textarea", VTextarea],
-    ["select", VSelect],
-    ["text", VText],
-    ["html", VText],
-    ["upload", VUpload],
-    ["tab", VTab],
-    ["calendar", VCalendar],
-    ["pie", VChart],
-    ["ring", VChart],
-    ["line", VChart],
-    ["bar", VChart],
-    ["graph", VChart],
-    ["chart", VChart]
-]);
-
 function isChart(component) {
     return (
         component === "chart" ||

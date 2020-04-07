@@ -15,6 +15,7 @@ import Dialog from '@/src/components/mention/dialog';
 import Tips from '@/src/components/mention/tips';
 import QuickStart from '@/src/components/basic/quickstart';
 import API from '@/src/components/basic/api';
+import Custom from '@/src/components/basic/custom';
 import SLOT from '@/src/components/basic/slot';
 import Checkbox from '@/src/components/form/checkbox';
 import Tab from '@/src/components/form/tab';
@@ -105,6 +106,13 @@ export default {
                                 label: '组件API'
                             }
                         },
+                        {
+                            path: '/components/basic/custom',
+                            component: Custom,
+                            meta: {
+                                label: '自定义组件'
+                            }
+                        }
                         // {
                         //     path: '/components/basic/slot',
                         //     component: SLOT,

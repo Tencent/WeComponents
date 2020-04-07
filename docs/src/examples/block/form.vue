@@ -1,7 +1,51 @@
 <script>
 import WeComponents from "../../../../src/"; // 引入组件库
+import TopicManage from './topicManage.vue';
+WeComponents.register('topicManage', TopicManage);
 
 let pageFields = [
+    {
+        component: 'topicManage',
+        id: 'topicManage',
+        extra: {
+            options: [
+                {
+                    label: '全平台',
+                    value: 'all',
+                    color: 'rgba(221, 243, 221, 30%)',
+                    hoverColor: 'rgba(221, 243, 221, 100%)',
+                },
+                {
+                    label: 'iOS',
+                    value: 'ios',
+                    color: 'rgba(94, 114, 206, 30%)',
+                    hoverColor: 'rgba(94, 114, 206, 100%)',
+                },
+                {
+                    label: 'Android',
+                    value: 'android',
+                    color: 'rgba(250, 157, 59, 30%)',
+                    hoverColor: 'rgba(250, 157, 59, 100%)',
+                }
+            ],
+            optionIndex: 0,
+            range: [
+                {
+                    start: '2020/03/06',
+                    end: '2020/03/12'
+                },
+                {
+                    start: '2020/03/12',
+                    end: '2020/03/18'
+                },
+                {
+                    start: '2020/03/19',
+                    end: '2020/03/25'
+                }
+            ],
+            rangeIndex: 0
+        }
+    },
     {
         "id": "container",
         "component": "container",
@@ -296,6 +340,7 @@ let pageFields = [
                         "label": "保存草稿",
                         "value": "",
                         "attributes": {
+                            "class": "ui-mr-large",
                             "hide": false,
                             "disabled": false,
                             "readonly": false,
@@ -381,6 +426,29 @@ export default {
     mounted() {
         // 为表格赋值
         this.page.setValue("list", this.demoTableValue);
+        // 为自定义组件赋值
+        this.page.setValue('topicManage', [
+            {
+                index: 0, // 推荐位
+                topics: [
+                    {
+                        label: '有哪些王者荣耀的脏套路',
+                        start: '03/19 18:00',
+                        end: '03/20 23:59'
+                    }
+                ]
+            },
+            {
+                index: 1,
+                topics: [
+                    {
+                        label: '有哪些王者荣耀的脏套路',
+                        start: '03/19 18:00',
+                        end: '03/20 23:59'
+                    }
+                ]
+            }
+        ]);
     },
 
     methods: {

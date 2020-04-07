@@ -1,4 +1,5 @@
 import Util from './utils/util';
+import componentMap from './utils/componentMap';
 import _ from 'lodash';
 import VPage from './main.vue';
 import Dialog from './components/dialog/index.js';
@@ -36,6 +37,10 @@ class Container {
                 });
             };
         }
+    }
+
+    static register(name, component) {
+        componentMap.set(name, component);
     }
 
     trigger(eventName, params) {
