@@ -22,7 +22,7 @@
             <div class="wg-component-wraper">
                 <!-- 组件label -->
                 <div
-                    class="wg-component-label"
+                    :class="[ label ? 'wg-component-label' : '', required ? 'wg-component-required' : '']"
                     :style="{ width: labelWidth > 0 ? `${labelWidth}px` : '' }"
                     v-if="label"
                 >{{label}}</div>
@@ -190,6 +190,14 @@ export default {
         mouseLeaveEventName: {
             type: String,
             default: 'onTextMouseLeave'
+        },
+
+        /**
+         * 组件值是否必填
+         * @property validity
+         */
+        required: {
+            type: Boolean
         },
 
         /**
