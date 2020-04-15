@@ -12,6 +12,7 @@ import VUpload from "../components/upload/upload.vue";
 import VTab from "../components/tab/tab.vue";
 import VCalendar from "../components/calendar/calendar.vue";
 import VChart from "../components/chart/chart.vue";
+import VTag from "../components/tag/tag.vue";
 
 let componentMap = new Map([
     ["input", VInput],
@@ -36,7 +37,8 @@ let componentMap = new Map([
     ["line", VChart],
     ["bar", VChart],
     ["graph", VChart],
-    ["chart", VChart]
+    ["chart", VChart],
+    ["tag", VTag]
 ]);
 
 export default componentMap;

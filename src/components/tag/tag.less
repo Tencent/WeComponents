@@ -1,0 +1,66 @@
+.wg-tag {
+    .wg-tag-item {
+        display: inline-block;
+        vertical-align: top;
+        height: 1.7rem;
+        line-height: 1.7rem;
+        border: 1px solid #dcdcdc;
+        margin-right: .5rem;
+        margin-bottom: .5rem;
+        padding: .05rem;
+        .wg-tag-item_text {
+            display: inline-block;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            font-size: .7rem;
+            color: #484747;
+        }
+        .wg-tag-item_input {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            width: 7.5rem;
+            height: 1.7rem;
+            line-height: 1.7rem;
+            padding-left: .5rem;
+            padding-right: .5rem;
+            font-size: .7rem;
+            color: #353535;
+            border: none;
+        }
+        .wg-tag-item_close {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: 1.7rem;
+            height: 1.7rem;
+            border-left: 1px solid #dcdcdc;
+            background-color: #fbfbfb;
+            &:before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                width: .6rem;
+                height: .6rem;
+                margin-left: -.3rem;
+                margin-top: -.3rem;
+                background-image: url(//res.wx.qq.com/wechatgame/product/wxgame-component/dist/img/mod-dynamic-tag/close.555fc353.png);
+                background-repeat: no-repeat;
+                cursor: pointer;
+            }
+        }
+        .wg-tag-item_add {
+            position: relative;
+            display: inline-block;
+            vertical-align: top;
+            width: 5rem;
+            height: 1.7rem;
+            text-align: center;
+            border-left: 1px solid #dcdcdc;
+            font-size: .7rem;
+            color: #353535;
+            cursor: pointer;
+        }
+    }
+}

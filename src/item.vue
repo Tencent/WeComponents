@@ -14,6 +14,7 @@ import VUpload from "./components/upload/upload.vue";
 import VTab from "./components/tab/tab.vue";
 import VCalendar from "./components/calendar/calendar.vue";
 import VChart from "./components/chart/chart.vue";
+import VTag from "./components/tag/tag.vue";
 
 import util from "./utils/util.js";
 import componentMap from './utils/componentMap.js';
@@ -233,7 +234,8 @@ export default {
         VUpload,
         VTab,
         VCalendar,
-        VChart
+        VChart,
+        VTag
     }
 };
 </script>
