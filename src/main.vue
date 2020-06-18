@@ -102,14 +102,15 @@ export default {
          * @param {*} parentAttributes
          */
         function getContainerVnode(config = {}, parentAttributes) {
-            let _config = _.cloneDeep(config);
+            let _config = _.cloneDeep(config),
+                _parentAttributes = _.cloneDeep(parentAttributes);
 
             if (
-                typeof parentAttributes === 'object' &&
-                Object.keys(parentAttributes).length > 0 &&
-                checkIsContainer(parentAttributes.component)
+                typeof _parentAttributes === 'object' &&
+                Object.keys(_parentAttributes).length > 0 &&
+                checkIsContainer(_parentAttributes.component)
             ) {
-                _config._parentContainerAttributes = parentAttributes;
+                _config._parentContainerAttributes = _parentAttributes;
             }
 
             return h(
@@ -117,11 +118,11 @@ export default {
                 getRenderData(_config),
 
                 // 子组件会保留一份父组件的属性配置，这里可以做限制，仅传递部分需要的数据
-                config.items
+                (config.items && checkIsContainer(config.component))
                     ? config.items.map(item =>
                         getContainerVnode(
                             item,
-                            Object.assign(parentAttributes || {}, config.attributes, { component: config.component })
+                            Object.assign(_parentAttributes || {}, config.attributes, { component: config.component })
                         )
                     )
                     : []
