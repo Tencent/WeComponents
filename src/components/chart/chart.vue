@@ -194,13 +194,7 @@ export default {
     },
 
     mounted() {
-        let chart = echarts.init(
-            document.querySelector(`[data-id='${this.id}']`)
-        );
-        this.chart = chart;
-        if (this.value.length > 0 || this.type === 'graph') {
-            this.chart.setOption(this._formatOption());
-        }
+        this.init();
     },
 
     watch: {
@@ -228,10 +222,26 @@ export default {
                 }
             },
             deep: true
+        },
+        type: {
+            handler(newVal, oldVal) {
+                this.init();
+            }
         }
     },
 
     methods: {
+        init() {
+            let chart = echarts.init(
+                document.querySelector(`[data-id='${this.id}']`)
+            );
+            this.chart && this.chart.clear();
+            this.chart = chart;
+            if (this.value.length > 0 || this.type === 'graph') {
+                this.chart.setOption(this._formatOption());
+            }
+        },
+
         _formatOption() {
             let option = {
                 tooltip: {},
