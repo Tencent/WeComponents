@@ -1057,6 +1057,19 @@ module.exports = [
                 },
                 "required": ""
             },
+            "placeholder": {
+                "description": "无数据时的文案\n___attributes___",
+                "tags": {},
+                "name": "placeholder",
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "'没有数据'"
+                }
+            },
             "flexItemWrap": {
                 "description": "若为true，当组件所在容器采用flex布局时，当前组件强制占用一行\n___attributes___",
                 "tags": {},
@@ -2263,6 +2276,22 @@ module.exports = [
                     "name": "string|number"
                 },
                 "required": ""
+            },
+            "valueFilterName": {
+                "description": "组件数据过滤函数名称，对应currentPageInstance中的Vue实例methods中的方法名",
+                "tags": {},
+                "name": "valueFilterName",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "''"
+                }
             },
             "hide": {
                 "description": "组件是否隐藏",
@@ -5040,6 +5069,330 @@ module.exports = [
         }
     },
     {
+        "displayName": "Tag",
+        "description": "",
+        "tags": {},
+        "props": {
+            "id": {
+                "description": "组件id",
+                "tags": {},
+                "name": "id",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "label": {
+                "description": "组件标题",
+                "tags": {},
+                "name": "label",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "\"\""
+                }
+            },
+            "name": {
+                "description": "组件承载数据的key",
+                "tags": {},
+                "name": "name",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "value": {
+                "description": "组件承载数据",
+                "tags": {},
+                "name": "value",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string|array"
+                },
+                "required": ""
+            },
+            "hide": {
+                "description": "组件是否隐藏\n___attributes___",
+                "tags": {},
+                "name": "hide",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "false"
+                }
+            },
+            "placeholder": {
+                "description": "组件占位符\n___attributes___",
+                "tags": {},
+                "name": "placeholder",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "disabled": {
+                "description": "组件是否禁用\n___attributes___",
+                "tags": {},
+                "name": "disabled",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "required": ""
+            },
+            "readonly": {
+                "description": "组件是否只读\n___attributes___",
+                "tags": {},
+                "name": "readonly",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "required": ""
+            },
+            "wraperClass": {
+                "description": "组件顶层class\n___attributes___",
+                "tags": {},
+                "name": "wraperClass",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "animated": {
+                "description": "动画名称\n___attributes___",
+                "tags": {},
+                "name": "animated",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "labelWidth": {
+                "description": "组件label宽度，单位为px\n___attributes___",
+                "tags": {},
+                "name": "labelWidth",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "required": ""
+            },
+            "changeEventName": {
+                "description": "组件值变更事件名称\n___attributes___",
+                "tags": {},
+                "name": "changeEventName",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "\"onTagChange\""
+                }
+            },
+            "help": {
+                "description": "组件值补充文案\n___attributes___",
+                "tags": {},
+                "name": "help",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "\"\""
+                }
+            },
+            "flexItemWrap": {
+                "description": "若为true，当组件所在容器采用flex布局时，当前组件强制占用一行\n___attributes___",
+                "tags": {},
+                "name": "flexItemWrap",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "false"
+                }
+            },
+            "required": {
+                "description": "组件值是否必填\n___validity___",
+                "tags": {},
+                "name": "required",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "boolean"
+                },
+                "required": ""
+            },
+            "format": {
+                "description": "组件值类型\n可选值：String, Number\n___validity___",
+                "tags": {},
+                "name": "format",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "\"StringArray\""
+                }
+            },
+            "max": {
+                "description": "tag的最大个数\n___validity___",
+                "tags": {},
+                "name": "max",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "required": ""
+            },
+            "min": {
+                "description": "tag的最小个数\n___validity___",
+                "tags": {},
+                "name": "min",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "number"
+                },
+                "required": ""
+            },
+            "_validityErrorMessage": {
+                "description": "保存validity产生的错误信息",
+                "tags": {
+                    "ignore": [
+                        {
+                            "description": true,
+                            "title": "ignore"
+                        }
+                    ]
+                },
+                "name": "_validityErrorMessage",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "_tableData": {
+                "description": "",
+                "tags": {
+                    "ignore": [
+                        {
+                            "description": true,
+                            "title": "ignore"
+                        }
+                    ]
+                },
+                "name": "_tableData",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "object"
+                },
+                "required": ""
+            },
+            "_parentContainerAttributes": {
+                "description": "保存父容器组件attributes对象",
+                "tags": {
+                    "ignore": [
+                        {
+                            "description": true,
+                            "title": "ignore"
+                        }
+                    ]
+                },
+                "name": "_parentContainerAttributes",
+                "mixin": {
+                    "name": "emitter"
+                },
+                "type": {
+                    "name": "object"
+                },
+                "required": ""
+            }
+        },
+        "events": {},
+        "methods": [],
+        "slots": {
+            "top": {
+                "description": "组件顶部的组件组合",
+                "bindings": {}
+            },
+            "left": {
+                "description": "组件左侧的组件组合",
+                "bindings": {}
+            },
+            "right": {
+                "description": "组件右侧的组件组合",
+                "bindings": {}
+            },
+            "bottom": {
+                "description": "组件底部的组件组合",
+                "bindings": {}
+            }
+        }
+    },
+    {
         "displayName": "Text",
         "description": "",
         "tags": {},
@@ -5283,6 +5636,25 @@ module.exports = [
                     "value": "'onTextMouseLeave'"
                 }
             },
+            "required": {
+                "description": "组件值是否必填",
+                "tags": {
+                    "property": [
+                        {
+                            "title": "property",
+                            "type": {
+                                "name": "mixed"
+                            },
+                            "name": "validity"
+                        }
+                    ]
+                },
+                "name": "required",
+                "type": {
+                    "name": "boolean"
+                },
+                "required": ""
+            },
             "help": {
                 "description": "组件值补充文案",
                 "tags": {
@@ -5310,6 +5682,26 @@ module.exports = [
                     "name": "object"
                 },
                 "required": ""
+            },
+            "enableHtml": {
+                "description": "组件是否支持富文本展示",
+                "tags": {
+                    "ignore": [
+                        {
+                            "description": true,
+                            "title": "ignore"
+                        }
+                    ]
+                },
+                "name": "enableHtml",
+                "type": {
+                    "name": "boolean"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "false"
+                }
             },
             "_tableData": {
                 "description": "",
@@ -6065,6 +6457,24 @@ module.exports = [
                 },
                 "required": ""
             },
+            "finishEventName": {
+                "description": "",
+                "tags": {},
+                "name": "finishEventName",
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
+            "uploadEventName": {
+                "description": "",
+                "tags": {},
+                "name": "uploadEventName",
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
+            },
             "width": {
                 "description": "",
                 "tags": {},
@@ -6113,6 +6523,15 @@ module.exports = [
                     "func": false,
                     "value": "'image'"
                 }
+            },
+            "accept": {
+                "description": "",
+                "tags": {},
+                "name": "accept",
+                "type": {
+                    "name": "array"
+                },
+                "required": ""
             }
         },
         "events": {
@@ -6336,6 +6755,28 @@ module.exports = [
                     "func": false,
                     "value": "'onUploadChange'"
                 }
+            },
+            "finishEventName": {
+                "description": "上传完成事件名称，无论上传成功还是失败，都会触发该事件\n为兼容之前版本，默认事件名称不包含on\n___attributes___",
+                "tags": {},
+                "name": "finishEventName",
+                "type": {
+                    "name": "string"
+                },
+                "required": "",
+                "defaultValue": {
+                    "func": false,
+                    "value": "\"uploadFinish\""
+                }
+            },
+            "uploadEventName": {
+                "description": "自定义上传事件名称，若设置，则可在指向的方法中自定义上传逻辑\n___attributes___",
+                "tags": {},
+                "name": "uploadEventName",
+                "type": {
+                    "name": "string"
+                },
+                "required": ""
             },
             "help": {
                 "description": "组件值补充文案",
