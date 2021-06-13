@@ -10,7 +10,7 @@
     "docs": "node ./build/docs.js",
     "build": "node ./build/script.js",
     "release": "node ./build/release.js",
-    "snippets": "node ./build/snippets.js"
+    "snippet": "node ./build/snippet.js"
   },
   "repository": {
     "type": "git",
