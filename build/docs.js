@@ -1,6 +1,7 @@
 var vueDocs = require('vue-docgen-api');
 var rd = require('rd');
 var fs = require('fs');
+var path = require('path');
 
 var componentInfo = [];
 
@@ -17,11 +18,11 @@ function deepFilter(obj, filterProperties = []) {
     return copy;
 }
 
-rd.eachFileFilterSync('./src/components', /\.vue$/, function (f, s) {
+rd.eachFileFilterSync(path.resolve(__dirname, '../src/components'), /\.vue$/, function(f, s) {
     let info = deepFilter(vueDocs.parse(f), ['path']);
     componentInfo.push(info);
 });
 
 let content = 'module.exports = ' + JSON.stringify(componentInfo, undefined, 4);
 
-fs.writeFileSync('./docs/components.js', content);
+fs.writeFileSync(path.resolve(__dirname, '../docs/components.js'), content);

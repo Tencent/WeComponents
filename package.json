@@ -9,7 +9,8 @@
     "example": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "docs": "node ./build/docs.js",
     "build": "node ./build/script.js",
-    "release": "node ./build/release.js"
+    "release": "node ./build/release.js",
+    "snippet": "node ./build/snippet.js"
   },
   "repository": {
     "type": "git",
